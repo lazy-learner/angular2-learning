@@ -7,3 +7,4 @@ export * from './services/add-questions.service';
 export * from './services/form.service.ts';
 export * from './text-question-model';
 export * from './validation-model';
+export * from './checkbox-question-model';

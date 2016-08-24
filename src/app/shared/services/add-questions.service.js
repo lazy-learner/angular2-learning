@@ -10,8 +10,8 @@ var AddQuestionsService = (function () {
     function AddQuestionsService() {
         this.question = [];
     }
-    AddQuestionsService.prototype.addTextQuestionModel = function (textQuestionModel) {
-        this.question.push(textQuestionModel);
+    AddQuestionsService.prototype.addQuestionModel = function (questionModel) {
+        this.question.push(questionModel);
     };
     AddQuestionsService = __decorate([
         core_1.Injectable()

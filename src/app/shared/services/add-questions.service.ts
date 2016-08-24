@@ -8,8 +8,8 @@ export class AddQuestionsService {
 
   constructor() { }
 
-  addTextQuestionModel(textQuestionModel:TextQuestionModel){
-      this.question.push(textQuestionModel);
+  addQuestionModel(questionModel:QuestionModel){
+      this.question.push(questionModel);
   }
 
 }

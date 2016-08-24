@@ -7,11 +7,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var text_question_model_1 = require("../shared/text-question-model");
+var checkbox_question_model_1 = require("../shared/checkbox-question-model");
 var QuestionsComponent = (function () {
     function QuestionsComponent(theAddQuestionsService) {
         this.theAddQuestionsService = theAddQuestionsService;
+        this.displayCheckBoxFieldDialog = false;
         this.addQuestionsService = theAddQuestionsService;
-        this.textQuestionModel = new text_question_model_1.TextQuestionModel("");
     }
     QuestionsComponent.prototype.ngOnInit = function () {
     };
@@ -24,6 +25,19 @@ var QuestionsComponent = (function () {
     };
     QuestionsComponent.prototype.isTextField = function (questionModel) {
         if (questionModel instanceof text_question_model_1.TextQuestionModel) {
+            return true;
+        }
+        return false;
+    };
+    QuestionsComponent.prototype.dragCheckBoxFieldEnd = function (event) {
+        console.log("text field got dragged");
+        this.displayCheckBoxFieldDialog = true;
+    };
+    QuestionsComponent.prototype.closeCheckBoxFieldDialog = function () {
+        this.displayCheckBoxFieldDialog = false;
+    };
+    QuestionsComponent.prototype.isCheckBoxField = function (questionModel) {
+        if (questionModel instanceof checkbox_question_model_1.CheckboxQuestionModel) {
             return true;
         }
         return false;

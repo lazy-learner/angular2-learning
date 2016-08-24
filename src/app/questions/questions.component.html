@@ -15,7 +15,7 @@
 
         </li>
         <li>
-          <span class="btn btn-primary btn-block" title="Checkbox Field" pDraggable="components">Checkbox Field</span>
+          <span class="btn btn-primary btn-block" title="Checkbox Field" pDraggable="components" (onDragEnd)="dragCheckBoxFieldEnd($event)">Checkbox Field</span>
 
         </li>
         <li>
@@ -38,12 +38,22 @@
           </div>
 
         </div>
+        <div *ngIf="isCheckBoxField(questionModel)">
+          <div class="checkbox">
+            <label > <input id="checkBoxQuestionLabel" type="checkbox" name="checkBoxQuestionLabel"
+            checked="{{questionModel.defaultValue?'checked':''}}">{{questionModel.questionName}}</label>
+
+          </div>
+
+        </div>
 
       </div>
       </div>
     </div>
       <app-textfield-question [displayTextFieldDialog]="displayTextFieldDialog"
       (onClose)="closeTextFieldDialog()"></app-textfield-question>
+      <app-checkbox-question [displayCheckBoxFieldDialog]="displayCheckBoxFieldDialog"
+                            (onClose)="closeCheckBoxFieldDialog()"></app-checkbox-question>
   </div>
 
 </div>

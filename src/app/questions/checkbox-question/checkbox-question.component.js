@@ -6,20 +6,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
-var text_question_model_1 = require("../../shared/text-question-model");
-var TextfieldQuestionComponent = (function () {
-    function TextfieldQuestionComponent(theAddQuestionsService) {
+var checkbox_question_model_1 = require("../../shared/checkbox-question-model");
+var CheckboxQuestionComponent = (function () {
+    function CheckboxQuestionComponent(theAddQuestionsService) {
         this.theAddQuestionsService = theAddQuestionsService;
         this.isDisplayTabOn = true;
         this.isValidationTabOn = false;
         this.onClose = new core_1.EventEmitter();
         this.addQuestionsService = theAddQuestionsService;
-        this.textQuestionModel = new text_question_model_1.TextQuestionModel("Label");
+        this.checkboxQuestionModel = new checkbox_question_model_1.CheckboxQuestionModel("Label");
     }
-    TextfieldQuestionComponent.prototype.ngOnInit = function () {
-        console.log("new instace");
+    CheckboxQuestionComponent.prototype.ngOnInit = function () {
     };
-    TextfieldQuestionComponent.prototype.onTextFieldTabClick = function (tabName) {
+    CheckboxQuestionComponent.prototype.onCheckBoxFieldTabClick = function (tabName) {
         if (tabName === 'Display') {
             this.isDisplayTabOn = true;
             this.isValidationTabOn = false;
@@ -29,25 +28,25 @@ var TextfieldQuestionComponent = (function () {
             this.isDisplayTabOn = false;
         }
     };
-    TextfieldQuestionComponent.prototype.onTextFieldSave = function () {
-        this.addQuestionsService.addQuestionModel(this.textQuestionModel);
-        this.textQuestionModel = new text_question_model_1.TextQuestionModel("Label");
+    CheckboxQuestionComponent.prototype.onCheckBoxFieldSave = function () {
+        this.addQuestionsService.addQuestionModel(this.checkboxQuestionModel);
+        this.checkboxQuestionModel = new checkbox_question_model_1.CheckboxQuestionModel("Label");
         this.onClose.emit();
     };
     __decorate([
         core_1.Input()
-    ], TextfieldQuestionComponent.prototype, "displayTextFieldDialog");
+    ], CheckboxQuestionComponent.prototype, "displayCheckBoxFieldDialog");
     __decorate([
         core_1.Output()
-    ], TextfieldQuestionComponent.prototype, "onClose");
-    TextfieldQuestionComponent = __decorate([
+    ], CheckboxQuestionComponent.prototype, "onClose");
+    CheckboxQuestionComponent = __decorate([
         core_1.Component({
-            selector: 'app-textfield-question',
-            templateUrl: 'app/questions/textfield-question/textfield-question.component.html',
-            styleUrls: ['app/questions/textfield-question/textfield-question.component.css']
+            selector: 'app-checkbox-question',
+            templateUrl: 'app/questions/checkbox-question/checkbox-question.component.html',
+            styleUrls: ['app/questions/checkbox-question/checkbox-question.component.css']
         })
-    ], TextfieldQuestionComponent);
-    return TextfieldQuestionComponent;
+    ], CheckboxQuestionComponent);
+    return CheckboxQuestionComponent;
 }());
-exports.TextfieldQuestionComponent = TextfieldQuestionComponent;
-//# sourceMappingURL=textfield-question.component.js.map
+exports.CheckboxQuestionComponent = CheckboxQuestionComponent;
+//# sourceMappingURL=checkbox-question.component.js.map

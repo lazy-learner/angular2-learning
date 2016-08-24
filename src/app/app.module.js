@@ -25,6 +25,7 @@ var primeng_6 = require('primeng/primeng');
 var primeng_7 = require('primeng/primeng');
 var add_questions_service_1 = require("./shared/services/add-questions.service");
 var textfield_question_component_1 = require("./questions/textfield-question/textfield-question.component");
+var checkbox_question_component_1 = require("./questions/checkbox-question/checkbox-question.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -32,7 +33,9 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule,
                 forms_1.FormsModule, app_routing_1.routing],
-            declarations: [primeng_1.Calendar, app_component_1.AppComponent, form_details_component_1.FormDetailsComponent, primeng_2.Dropdown, questions_1.QuestionsComponent, primeng_3.Draggable, primeng_4.Droppable, primeng_5.Dialog, primeng_6.TabView, primeng_7.TabPanel, textfield_question_component_1.TextfieldQuestionComponent],
+            declarations: [primeng_1.Calendar, app_component_1.AppComponent, form_details_component_1.FormDetailsComponent, primeng_2.Dropdown, questions_1.QuestionsComponent, primeng_3.Draggable, primeng_4.Droppable, primeng_5.Dialog, primeng_6.TabView, primeng_7.TabPanel,
+                textfield_question_component_1.TextfieldQuestionComponent,
+                checkbox_question_component_1.CheckboxQuestionComponent],
             providers: [
                 form_service_1.FormService,
                 add_questions_service_1.AddQuestionsService

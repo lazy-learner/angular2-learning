@@ -19,10 +19,11 @@ export class TextfieldQuestionComponent implements OnInit {
   constructor(private theAddQuestionsService:AddQuestionsService
   ) {
     this.addQuestionsService=theAddQuestionsService;
-    this.textQuestionModel= new TextQuestionModel("");
+    this.textQuestionModel= new TextQuestionModel("Label");
   }
 
   ngOnInit() {
+    console.log("new instace");
   }
 
   onTextFieldTabClick(tabName:string){
@@ -36,7 +37,8 @@ export class TextfieldQuestionComponent implements OnInit {
     }
   }
   onTextFieldSave(){
-    this.addQuestionsService.addTextQuestionModel(this.textQuestionModel);
+    this.addQuestionsService.addQuestionModel(this.textQuestionModel);
+    this.textQuestionModel= new TextQuestionModel("Label");
     this.onClose.emit();
   }
 

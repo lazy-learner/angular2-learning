@@ -11,4 +11,5 @@ __export(require('./services/add-questions.service'));
 __export(require('./services/form.service.ts'));
 __export(require('./text-question-model'));
 __export(require('./validation-model'));
+__export(require('./checkbox-question-model'));
 //# sourceMappingURL=index.js.map

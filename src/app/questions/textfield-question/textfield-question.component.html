@@ -1,5 +1,5 @@
 <p-dialog header="Add a Text Field" [(visible)]="displayTextFieldDialog" modal="modal" showEffect="fade" width="600" responsive="true"
-          id="textDialog">
+          id="textDialog" >
   <ul class="nav nav-pills">
     <li role="presentation" [ngClass]="{active:isDisplayTabOn}">
       <a (click)="onTextFieldTabClick('Display')">Display</a>
@@ -8,43 +8,37 @@
 
   </ul>
 
-  <form>
+  <form #textFieldForm="ngForm">
     <div *ngIf="isDisplayTabOn">
-      <div class="form-group row">
-        <label for="label" class="col-sm-3 col-form-label">Label</label>
-        <div class="col-sm-9">
-          <input id="label" type="text" name="label" class="form-control" [(ngModel)]="textQuestionModel.questionName">
+      <div class="form-group">
+        <label for="label" >Label</label>
+        <input id="label" type="text" name="label" class="form-control" [(ngModel)]="textQuestionModel.questionName" required #label="ngModel">
+        <div [hidden]="label.valid || label.pristine" class="alert alert-danger">
+          Label is required
         </div>
       </div>
-      <div class="form-group row">
+      <div class="form-group">
         <label for="Default_Value" class="col-sm-3 col-form-label">Default Value</label>
-        <div class="col-sm-9">
           <input id="Default_Value" type="text" name="Default Value" class="form-control" [(ngModel)]="textQuestionModel.defaultValue">
-        </div>
       </div>
-      <div class="form-group row">
+      <div class="form-group">
         <label for="placeHolder" class="col-sm-3 col-form-label">Place Holder</label>
-        <div class="col-sm-9">
           <input id="placeHolder" type="text" name="placeHolder" class="form-control" [(ngModel)]="textQuestionModel.placeHolder">
-        </div>
       </div>
     </div>
     <div *ngIf="isValidationTabOn">
-      <div class="form-group row">
+      <div class="form-group">
         <label for="Minimum_Length" class="col-sm-3 col-form-label">Minimum Length</label>
-        <div class="col-sm-9">
           <input id="Minimum_Length" type="text" name="Minimum Length" class="form-control">
-        </div>
       </div>
-      <div class="form-group row">
+      <div class="form-group">
         <label for="maximum_length" class="col-sm-3 col-form-label">Maximum Length</label>
-        <div class="col-sm-9">
           <input id="maximum_length" type="text" name="Maximum Length" class="form-control">
-        </div>
       </div>
 
     </div>
-    <button type="submit" class="btn btn-primary btn-block pull-right" (click)="onTextFieldSave()">Save</button>
+    <button type="submit" class="btn btn-primary btn-block pull-right" (click)="onTextFieldSave()"
+             >Save</button>
   </form>
 
 

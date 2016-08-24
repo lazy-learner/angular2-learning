@@ -19,11 +19,14 @@ import {TabView} from 'primeng/primeng';
 import {TabPanel} from 'primeng/primeng';
 import {AddQuestionsService} from "./shared/services/add-questions.service";
 import {TextfieldQuestionComponent} from "./questions/textfield-question/textfield-question.component";
+import {CheckboxQuestionComponent} from "./questions/checkbox-question/checkbox-question.component";
 
 @NgModule({
   imports:      [ BrowserModule,
     FormsModule,routing ],
-  declarations: [ Calendar,AppComponent,FormDetailsComponent,Dropdown,QuestionsComponent,Draggable,Droppable,Dialog,TabView,TabPanel,TextfieldQuestionComponent ],
+  declarations: [ Calendar,AppComponent,FormDetailsComponent,Dropdown,QuestionsComponent,Draggable,Droppable,Dialog,TabView,TabPanel,
+    TextfieldQuestionComponent,
+    CheckboxQuestionComponent],
   providers: [
     FormService,
     AddQuestionsService
