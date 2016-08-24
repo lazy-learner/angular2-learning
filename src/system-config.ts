@@ -9,10 +9,15 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  'primeng': 'vendor/primeng',
+  'primeui': 'vendor/primeui'
 };
 
 /** User packages configuration. */
 const packages: any = {
+  'primeng':{
+    format: 'cjs'
+  }
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -36,6 +41,9 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
+  'app/form-details',
+  'app/questions',
+  'app/questions/textfield-question',
   /** @cli-barrel */
 ];
 
@@ -52,7 +60,11 @@ System.config({
   map: {
     '@angular': 'vendor/@angular',
     'rxjs': 'vendor/rxjs',
-    'main': 'main.js'
+    'main': 'main.js',
+    'chart.js' : 'vendor/chart.js',
+    'primeng' : 'vendor/primeng',
+    'primeui' : 'vendor/primeui',
+    'jquery':'vendor/jquery'
   },
   packages: cliSystemConfigPackages
 });

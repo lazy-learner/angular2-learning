@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="page-header center-block">
+    <h1>
+      Add Questions
+    </h1>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 col-md-2 sidebar" id="MenuSide">
+       <ul class="nav nav-sidebar">
+        <li>
+          <span class="btn btn-primary btn-block" title="Text Field" pDraggable="components" (onDragEnd)="dragTextFieldEnd($event)">Text Field</span>
+        </li>
+        <li>
+          <span class="btn btn-primary btn-block" title="Number Field" pDraggable="components">Number Field</span>
+
+        </li>
+        <li>
+          <span class="btn btn-primary btn-block" title="Checkbox Field" pDraggable="components">Checkbox Field</span>
+
+        </li>
+        <li>
+          <span class="btn btn-primary btn-block" title="Radio Button Field" pDraggable="components">Radio Button Field</span>
+
+        </li>
+        <li>
+          <span class="btn btn-primary btn-block" title="Drop Down Field" pDraggable="components">Drop Down Field</span>
+
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-9 col-md-10 main" pDroppable="components">
+      <div *ngIf="addQuestionsService.question.length > 0">
+      <div *ngFor="let questionModel of addQuestionsService.question">
+        <div *ngIf="isTextField(questionModel)">
+          <div class="form-group">
+            <label for="questionLabel" >{{questionModel.questionName}}</label>
+            <input id="questionLabel" class="form-control" type="text" name="questionLabel" placeholder="{{questionModel.placeHolder}}" >
+          </div>
+
+        </div>
+
+      </div>
+      </div>
+    </div>
+      <app-textfield-question [displayTextFieldDialog]="displayTextFieldDialog"
+      (onClose)="closeTextFieldDialog()"></app-textfield-question>
+  </div>
+
+</div>

@@ -1,0 +1,27 @@
+#MenuSide{
+  float:left;
+
+  border-right: solid 1px #0b3e6f;
+  overflow:hidden;
+}
+body{
+  font-family:'Roboto', "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-weight:normal;
+  color:#404C51;
+}
+
+#MenuSide li{
+  padding:6px;
+}
+
+#textDialog form {
+  padding-top:15px;
+}
+
+#textDialog .ui-dialog-titlebar{
+  background-color:#337ab7;
+  margin:0px;
+}
+#textDialog .ui-dialog-title .ui-dialog-titlebar-close{
+  color:white;
+}
