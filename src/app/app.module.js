@@ -27,6 +27,7 @@ var add_questions_service_1 = require("./shared/services/add-questions.service")
 var textfield_question_component_1 = require("./questions/textfield-question/textfield-question.component");
 var checkbox_question_component_1 = require("./questions/checkbox-question/checkbox-question.component");
 var dropdown_question_component_1 = require("./questions/dropdown-question/dropdown-question.component");
+var radio_group_question_component_1 = require("./questions/radio-group-question/radio-group-question.component");
 var numeric_validator_1 = require("./shared/Directives/numeric-validator");
 var AppModule = (function () {
     function AppModule() {
@@ -39,12 +40,14 @@ var AppModule = (function () {
                 textfield_question_component_1.TextfieldQuestionComponent,
                 checkbox_question_component_1.CheckboxQuestionComponent,
                 numeric_validator_1.NumericValidator,
-                dropdown_question_component_1.DropdownQuestionComponent],
+                dropdown_question_component_1.DropdownQuestionComponent,
+                radio_group_question_component_1.RadioGroupQuestionComponent,
+                primeng_7.RadioButton],
             providers: [
                 form_service_1.FormService,
                 add_questions_service_1.AddQuestionsService
             ],
-            entryComponents: [textfield_question_component_1.TextfieldQuestionComponent, checkbox_question_component_1.CheckboxQuestionComponent, dropdown_question_component_1.DropdownQuestionComponent],
+            entryComponents: [textfield_question_component_1.TextfieldQuestionComponent, checkbox_question_component_1.CheckboxQuestionComponent, dropdown_question_component_1.DropdownQuestionComponent, radio_group_question_component_1.RadioGroupQuestionComponent],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

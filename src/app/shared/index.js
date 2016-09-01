@@ -13,4 +13,5 @@ __export(require('./model/validation-type'));
 __export(require('./model/checkbox-question-model'));
 __export(require('./model/validation-model'));
 __export(require('./model/dropdown-question-model'));
+__export(require('./model/radiogroup-question-model'));
 //# sourceMappingURL=index.js.map

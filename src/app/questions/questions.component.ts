@@ -8,7 +8,9 @@ import {QuestionType} from "../shared/model/question-type";
 import {CheckboxQuestionComponent} from "./checkbox-question/checkbox-question.component";
 import {DropdownQuestionComponent} from "./dropdown-question/dropdown-question.component";
 import {DropdownQuestionModel} from "../shared/model/dropdown-question-model";
-import {SelectItem} from "primeng/primeng";
+import {SelectItem,RadioButton} from "primeng/primeng";
+import {RadioGroupQuestionComponent} from "./radio-group-question/radio-group-question.component";
+import {RadioGroupQuestionModel} from "../shared/model/radiogroup-question-model";
 
 
 @Component({
@@ -104,6 +106,19 @@ export class QuestionsComponent implements OnInit {
         });
       if(typeof questionModel != "undefined" && questionModel){
         dropDownFieldComponentRef.instance.dropDownQuestionModel=<DropdownQuestionModel>questionModel;
+      }
+
+    }
+
+    if(componentType===QuestionType.RadioGroup) {
+      let factory = this.componentResolver.resolveComponentFactory(RadioGroupQuestionComponent);
+      let radioGroupComponentRef = this.dialogContainerRef.createComponent(factory, 0, this.viewContainerRef.injector);
+      radioGroupComponentRef.instance.onClose.subscribe(
+        ()=> {
+          radioGroupComponentRef.destroy();
+        });
+      if(typeof questionModel != "undefined" && questionModel){
+        radioGroupComponentRef.instance.radioGroupQuestionModel=<RadioGroupQuestionModel>questionModel;
       }
 
     }

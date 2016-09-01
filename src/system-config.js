@@ -40,6 +40,7 @@ var barrels = [
     'app/questions/textfield-question',
     'app/questions/checkbox-question',
     'app/questions/dropdown-question',
+    'app/questions/radio-group-question',
 ];
 var cliSystemConfigPackages = {};
 barrels.forEach(function (barrelName) {

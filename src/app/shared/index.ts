@@ -9,3 +9,4 @@ export * from './model/validation-type';
 export * from './model/checkbox-question-model';
 export * from './model/validation-model';
 export * from './model/dropdown-question-model';
+export * from './model/radiogroup-question-model';

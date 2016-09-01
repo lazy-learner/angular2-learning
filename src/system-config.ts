@@ -46,6 +46,7 @@ const barrels: string[] = [
   'app/questions/textfield-question',
   'app/questions/checkbox-question',
   'app/questions/dropdown-question',
+  'app/questions/radio-group-question',
   /** @cli-barrel */
 ];
 

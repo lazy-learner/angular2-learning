@@ -1,0 +1,76 @@
+<p-dialog header="Add a RadioGroup Component" visible="true" modal="modal" showEffect="fade" width="600" responsive="true"
+          id="radioGroupDialog">
+  <form [formGroup]="radioGroupForm">
+    <ul class="nav nav-pills">
+      <li role="presentation" [ngClass]="{active:isDisplayTabOn}">
+        <a (click)="onRadioGroupTabClick('Display')">Display</a>
+      </li>
+      <li role="presentation" [ngClass]="{active:isValidationTabOn}"><a (click)="onRadioGroupTabClick('Validations')">Validations</a></li>
+
+    </ul>
+
+    <div *ngIf="isDisplayTabOn">
+      <div class="form-group ">
+        <label for="label" >Label</label>
+        <input id="label" type="text" name="label" class="form-control" required
+               formControlName="label">
+      </div>
+
+      <div class="form-group">
+        <label >Options</label>
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="col-xs-5">
+              Label
+              </th>
+              <th class="col-xs-5">
+                Value
+              </th>
+              <th class="col-xs-2">
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let option of radioGroupForm?.find('options')?.controls;let i = index;">
+            <td class="col-xs-5">
+              <input type="text" name="label" class="form-control"
+                     [formControl]="option?.controls?.Label" >
+            </td>
+            <td class="col-xs-5">
+              <input type="text" name="label" class="form-control"
+                     [formControl]="option?.controls?.Value" >
+            </td>
+            <td class="col-xs-2 btn-group">
+              <button type="button" class="btn btn-default " aria-label="Delete Option" (click)="deleteOption(i)">
+                <span class="glyphicon glyphicon-remove"></span>
+              </button>
+
+            </td>
+          </tr>
+          </tbody>
+
+        </table>
+
+        <div class="container-fluid" >
+          <button type="button" class="btn btn-primary " style="margin-top:6px;" aria-label="Add Option" (click)="addOption()">
+            Add Option
+          </button>
+        </div>
+
+      </div>
+
+
+    </div>
+    <div *ngIf="isValidationTabOn" formGroupName="validations">
+      <div class="form-group row">
+
+      </div>
+
+    </div>
+    <button type="button" class="btn btn-primary btn-block pull-right" (click)="onRadioGroupFieldSave()">Save</button>
+
+  </form>
+
+</p-dialog>
+

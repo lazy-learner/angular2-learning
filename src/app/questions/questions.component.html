@@ -26,7 +26,8 @@
 
           </li>
           <li>
-            <span class="btn btn-primary btn-block" title="Radio Button" pDraggable="components">Radio Button Field</span>
+            <span class="btn btn-primary btn-block" title="Radio Button" pDraggable="components"
+                  (onDragEnd)="dragComponentEnd(questionType.RadioGroup,$event)">Radio Button Group</span>
 
           </li>
           <li>
@@ -104,6 +105,30 @@
                 </div>
               </div>
 
+
+              <div *ngSwitchCase="questionType.RadioGroup">
+                <div class="form-group question-btn-block">
+                  <div class="right-corner-btn btn-group">
+                    <button type="button" class="btn btn-default " aria-label="Edit" (click)="editQuestion(questionModel)">
+                      <span class="glyphicon glyphicon-edit"></span>
+                    </button>
+                    <button type="button" class="btn btn-default " aria-label="Delete" (click)="deleteQuestion(i)">
+                      <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                  </div>
+                  <div >
+                    <label >{{questionModel.questionLabel}}</label>
+                    <div *ngFor="let radioOption of questionModel.options" class="radio">
+                      <label>
+                        <input type="radio" [name]="questionModel.questionLabel" [id]="questionModel.questionLabel" [value]="radioOption.value">
+                       {{radioOption.label}}
+                      </label>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
             </div>
 
           </div>
@@ -111,11 +136,7 @@
         </div>
 
         </div>
-        <div class="row">
-        <button type="button" class="btn btn-primary pull-right"
-        >submit
-        </button>
-        </div>
+
       </div>
       <div>
 
@@ -133,6 +154,10 @@
                              (onClose)="closeCheckBoxFieldDialog()"></app-checkbox-question>
 -->
       </div>
-
+  <div class="row">
+    <button type="button" class="btn-lg btn-primary pull-right"
+    >submit
+    </button>
+  </div>
 
 </div>

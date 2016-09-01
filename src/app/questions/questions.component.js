@@ -12,6 +12,7 @@ var textfield_question_component_1 = require("./textfield-question/textfield-que
 var question_type_1 = require("../shared/model/question-type");
 var checkbox_question_component_1 = require("./checkbox-question/checkbox-question.component");
 var dropdown_question_component_1 = require("./dropdown-question/dropdown-question.component");
+var radio_group_question_component_1 = require("./radio-group-question/radio-group-question.component");
 var QuestionsComponent = (function () {
     function QuestionsComponent(theAddQuestionsService, componentResolver, viewContainerRef) {
         this.theAddQuestionsService = theAddQuestionsService;
@@ -78,6 +79,16 @@ var QuestionsComponent = (function () {
             });
             if (typeof questionModel != "undefined" && questionModel) {
                 dropDownFieldComponentRef_1.instance.dropDownQuestionModel = questionModel;
+            }
+        }
+        if (componentType === question_type_1.QuestionType.RadioGroup) {
+            var factory = this.componentResolver.resolveComponentFactory(radio_group_question_component_1.RadioGroupQuestionComponent);
+            var radioGroupComponentRef_1 = this.dialogContainerRef.createComponent(factory, 0, this.viewContainerRef.injector);
+            radioGroupComponentRef_1.instance.onClose.subscribe(function () {
+                radioGroupComponentRef_1.destroy();
+            });
+            if (typeof questionModel != "undefined" && questionModel) {
+                radioGroupComponentRef_1.instance.radioGroupQuestionModel = questionModel;
             }
         }
     };

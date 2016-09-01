@@ -16,11 +16,12 @@ import { Draggable } from 'primeng/primeng';
 import { Droppable } from 'primeng/primeng';
 import {Dialog} from 'primeng/primeng';
 import {TabView} from 'primeng/primeng';
-import {TabPanel} from 'primeng/primeng';
+import {TabPanel,RadioButton} from 'primeng/primeng';
 import {AddQuestionsService} from "./shared/services/add-questions.service";
 import {TextfieldQuestionComponent} from "./questions/textfield-question/textfield-question.component";
 import {CheckboxQuestionComponent} from "./questions/checkbox-question/checkbox-question.component";
 import {DropdownQuestionComponent} from "./questions/dropdown-question/dropdown-question.component";
+import {RadioGroupQuestionComponent} from "./questions/radio-group-question/radio-group-question.component";
 import {NumericValidator} from "./shared/Directives/numeric-validator"
 
 @NgModule({
@@ -30,13 +31,15 @@ import {NumericValidator} from "./shared/Directives/numeric-validator"
     TextfieldQuestionComponent,
     CheckboxQuestionComponent,
     NumericValidator,
-    DropdownQuestionComponent],
+    DropdownQuestionComponent,
+    RadioGroupQuestionComponent,
+    RadioButton],
   providers: [
     FormService,
     AddQuestionsService
 
   ],
-  entryComponents:[TextfieldQuestionComponent,CheckboxQuestionComponent,DropdownQuestionComponent],
+  entryComponents:[TextfieldQuestionComponent,CheckboxQuestionComponent,DropdownQuestionComponent,RadioGroupQuestionComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
