@@ -13,6 +13,7 @@ var question_type_1 = require("../shared/model/question-type");
 var checkbox_question_component_1 = require("./checkbox-question/checkbox-question.component");
 var dropdown_question_component_1 = require("./dropdown-question/dropdown-question.component");
 var radio_group_question_component_1 = require("./radio-group-question/radio-group-question.component");
+var checkbox_group_question_component_1 = require("./checkbox-group-question/checkbox-group-question.component");
 var QuestionsComponent = (function () {
     function QuestionsComponent(theAddQuestionsService, componentResolver, viewContainerRef) {
         this.theAddQuestionsService = theAddQuestionsService;
@@ -89,6 +90,16 @@ var QuestionsComponent = (function () {
             });
             if (typeof questionModel != "undefined" && questionModel) {
                 radioGroupComponentRef_1.instance.radioGroupQuestionModel = questionModel;
+            }
+        }
+        if (componentType === question_type_1.QuestionType.CheckBoxGroup) {
+            var factory = this.componentResolver.resolveComponentFactory(checkbox_group_question_component_1.CheckboxGroupQuestionComponent);
+            var checkboxGroupComponentRef_1 = this.dialogContainerRef.createComponent(factory, 0, this.viewContainerRef.injector);
+            checkboxGroupComponentRef_1.instance.onClose.subscribe(function () {
+                checkboxGroupComponentRef_1.destroy();
+            });
+            if (typeof questionModel != "undefined" && questionModel) {
+                checkboxGroupComponentRef_1.instance.checkBoxGroupQuestionModel = questionModel;
             }
         }
     };

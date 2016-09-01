@@ -1,11 +1,11 @@
-<p-dialog header="Add a DropDown Component" visible="true" modal="modal" showEffect="fade" width="600" responsive="true"
-          id="checkBoxDialog">
-  <form [formGroup]="dropDownFieldForm">
+<p-dialog header="Add a RadioGroup Component" visible="true" modal="modal" showEffect="fade" width="600" responsive="true"
+          id="checkBoxGroupDialog">
+  <form [formGroup]="checkBoxGroupForm">
     <ul class="nav nav-pills">
       <li role="presentation" [ngClass]="{active:isDisplayTabOn}">
-        <a (click)="onDropDownFieldTabClick('Display')">Display</a>
+        <a (click)="onCheckBoxGroupTabClick('Display')">Display</a>
       </li>
-      <li role="presentation" [ngClass]="{active:isValidationTabOn}"><a (click)="onDropDownFieldTabClick('Validations')">Validations</a></li>
+      <li role="presentation" [ngClass]="{active:isValidationTabOn}"><a (click)="onCheckBoxGroupTabClick('Validations')">Validations</a></li>
 
     </ul>
 
@@ -32,7 +32,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let option of dropDownFieldForm?.find('options')?.controls;let i = index;">
+          <tr *ngFor="let option of checkBoxGroupForm?.find('options')?.controls;let i = index;">
             <td class="col-xs-5">
               <input type="text" name="label" class="form-control"
                      [formControl]="option?.controls?.Label" >
@@ -51,11 +51,12 @@
           </tbody>
 
         </table>
-          <div class="container-fluid" >
+
+        <div class="container-fluid" >
           <button type="button" class="btn btn-primary " style="margin-top:6px;" aria-label="Add Option" (click)="addOption()">
             Add Option
           </button>
-          </div>
+        </div>
 
       </div>
 
@@ -67,7 +68,7 @@
       </div>
 
     </div>
-    <button type="button" class="btn btn-primary btn-block pull-right" (click)="onDropDownFieldSave()">Save</button>
+    <button type="button" class="btn btn-primary btn-block pull-right" (click)="onCheckBoxGroupFieldSave()">Save</button>
 
   </form>
 

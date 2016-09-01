@@ -23,6 +23,7 @@ import {CheckboxQuestionComponent} from "./questions/checkbox-question/checkbox-
 import {DropdownQuestionComponent} from "./questions/dropdown-question/dropdown-question.component";
 import {RadioGroupQuestionComponent} from "./questions/radio-group-question/radio-group-question.component";
 import {NumericValidator} from "./shared/Directives/numeric-validator"
+import {CheckboxGroupQuestionComponent} from "./questions/checkbox-group-question/checkbox-group-question.component";
 
 @NgModule({
   imports:      [ BrowserModule,
@@ -33,13 +34,14 @@ import {NumericValidator} from "./shared/Directives/numeric-validator"
     NumericValidator,
     DropdownQuestionComponent,
     RadioGroupQuestionComponent,
-    RadioButton],
+    RadioButton,
+    CheckboxGroupQuestionComponent],
   providers: [
     FormService,
     AddQuestionsService
 
   ],
-  entryComponents:[TextfieldQuestionComponent,CheckboxQuestionComponent,DropdownQuestionComponent,RadioGroupQuestionComponent],
+  entryComponents:[TextfieldQuestionComponent,CheckboxQuestionComponent,DropdownQuestionComponent,RadioGroupQuestionComponent,CheckboxGroupQuestionComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

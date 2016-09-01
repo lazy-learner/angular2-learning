@@ -3,6 +3,6 @@ export enum QuestionType {
   CheckBox,
   DropDown,
   RadioGroup,
-  Numeric
+  CheckBoxGroup
 
 }

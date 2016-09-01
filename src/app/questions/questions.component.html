@@ -14,15 +14,17 @@
         <ul class="nav nav-sidebar">
           <li>
             <span class="btn btn-primary btn-block" title="Text Field" pDraggable="components"
-                  (onDragEnd)="dragComponentEnd(questionType.Text,$event)">Text Field</span>
+                  (onDragEnd)="dragComponentEnd(questionType.Text,$event)">Text </span>
           </li>
+
           <li>
-            <span class="btn btn-primary btn-block" title="Number" pDraggable="components">Number Field</span>
+            <span class="btn btn-primary btn-block" title="Checkbox" pDraggable="components"
+                  (onDragEnd)="dragComponentEnd(questionType.CheckBox,$event)">Checkbox </span>
 
           </li>
           <li>
-            <span class="btn btn-primary btn-block" title="Checkbox" pDraggable="components"
-                  (onDragEnd)="dragComponentEnd(questionType.CheckBox,$event)">Checkbox Field</span>
+            <span class="btn btn-primary btn-block" title="Check Box Group" pDraggable="components"
+                  (onDragEnd)="dragComponentEnd(questionType.CheckBoxGroup,$event)">Check Box Group</span>
 
           </li>
           <li>
@@ -32,7 +34,7 @@
           </li>
           <li>
             <span class="btn btn-primary btn-block" title="Drop Down"
-                  pDraggable="components"  (onDragEnd)="dragComponentEnd(questionType.DropDown,$event)">Drop Down Field</span>
+                  pDraggable="components"  (onDragEnd)="dragComponentEnd(questionType.DropDown,$event)">Drop Down</span>
 
           </li>
         </ul>
@@ -122,6 +124,29 @@
                       <label>
                         <input type="radio" [name]="questionModel.questionLabel" [id]="questionModel.questionLabel" [value]="radioOption.value">
                        {{radioOption.label}}
+                      </label>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div *ngSwitchCase="questionType.CheckBoxGroup">
+                <div class="form-group question-btn-block">
+                  <div class="right-corner-btn btn-group">
+                    <button type="button" class="btn btn-default " aria-label="Edit" (click)="editQuestion(questionModel)">
+                      <span class="glyphicon glyphicon-edit"></span>
+                    </button>
+                    <button type="button" class="btn btn-default " aria-label="Delete" (click)="deleteQuestion(i)">
+                      <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                  </div>
+                  <div >
+                    <label >{{questionModel.questionLabel}}</label>
+                    <div *ngFor="let checkBoxOption of questionModel.options" class="radio">
+                      <label>
+                        <input type="checkbox" [name]="questionModel.questionLabel" [id]="questionModel.questionLabel" [value]="checkBoxOption.value">
+                        {{checkBoxOption.label}}
                       </label>
                     </div>
 

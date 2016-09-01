@@ -29,6 +29,7 @@ var checkbox_question_component_1 = require("./questions/checkbox-question/check
 var dropdown_question_component_1 = require("./questions/dropdown-question/dropdown-question.component");
 var radio_group_question_component_1 = require("./questions/radio-group-question/radio-group-question.component");
 var numeric_validator_1 = require("./shared/Directives/numeric-validator");
+var checkbox_group_question_component_1 = require("./questions/checkbox-group-question/checkbox-group-question.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -42,12 +43,13 @@ var AppModule = (function () {
                 numeric_validator_1.NumericValidator,
                 dropdown_question_component_1.DropdownQuestionComponent,
                 radio_group_question_component_1.RadioGroupQuestionComponent,
-                primeng_7.RadioButton],
+                primeng_7.RadioButton,
+                checkbox_group_question_component_1.CheckboxGroupQuestionComponent],
             providers: [
                 form_service_1.FormService,
                 add_questions_service_1.AddQuestionsService
             ],
-            entryComponents: [textfield_question_component_1.TextfieldQuestionComponent, checkbox_question_component_1.CheckboxQuestionComponent, dropdown_question_component_1.DropdownQuestionComponent, radio_group_question_component_1.RadioGroupQuestionComponent],
+            entryComponents: [textfield_question_component_1.TextfieldQuestionComponent, checkbox_question_component_1.CheckboxQuestionComponent, dropdown_question_component_1.DropdownQuestionComponent, radio_group_question_component_1.RadioGroupQuestionComponent, checkbox_group_question_component_1.CheckboxGroupQuestionComponent],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);
