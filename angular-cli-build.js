@@ -24,7 +24,8 @@ module.exports = function(defaults) {
       'bourbon-neat/app/assets/**',
       'bourbon/app/assets/**',
       'font-awesome/**',
-      'bootstrap/dist/css/bootstrap.min.css'
+      'bootstrap/dist/css/bootstrap.min.css',
+      'bootstrap/dist/fonts/**'
     ],
     polyfills:[
       'vendor/jquery/dist/jquery.min.js',

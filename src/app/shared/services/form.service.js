@@ -6,7 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
-var form_model_1 = require('../form-model');
+var form_model_1 = require('../model/form-model');
 var FormService = (function () {
     function FormService() {
         this.formObject = new form_model_1.FormModel("");

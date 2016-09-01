@@ -4,56 +4,135 @@
       Add Questions
     </h1>
   </div>
-  <div class="row">
-    <div class="col-sm-3 col-md-2 sidebar" id="MenuSide">
-       <ul class="nav nav-sidebar">
-        <li>
-          <span class="btn btn-primary btn-block" title="Text Field" pDraggable="components" (onDragEnd)="dragTextFieldEnd($event)">Text Field</span>
-        </li>
-        <li>
-          <span class="btn btn-primary btn-block" title="Number Field" pDraggable="components">Number Field</span>
 
-        </li>
-        <li>
-          <span class="btn btn-primary btn-block" title="Checkbox Field" pDraggable="components" (onDragEnd)="dragCheckBoxFieldEnd($event)">Checkbox Field</span>
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar" id="MenuSide">
+        <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Form Components</h3>
+        </div>
+        <ul class="nav nav-sidebar">
+          <li>
+            <span class="btn btn-primary btn-block" title="Text Field" pDraggable="components"
+                  (onDragEnd)="dragComponentEnd(questionType.Text,$event)">Text Field</span>
+          </li>
+          <li>
+            <span class="btn btn-primary btn-block" title="Number" pDraggable="components">Number Field</span>
 
-        </li>
-        <li>
-          <span class="btn btn-primary btn-block" title="Radio Button Field" pDraggable="components">Radio Button Field</span>
+          </li>
+          <li>
+            <span class="btn btn-primary btn-block" title="Checkbox" pDraggable="components"
+                  (onDragEnd)="dragComponentEnd(questionType.CheckBox,$event)">Checkbox Field</span>
 
-        </li>
-        <li>
-          <span class="btn btn-primary btn-block" title="Drop Down Field" pDraggable="components">Drop Down Field</span>
+          </li>
+          <li>
+            <span class="btn btn-primary btn-block" title="Radio Button" pDraggable="components">Radio Button Field</span>
 
-        </li>
-      </ul>
-    </div>
-    <div class="col-sm-9 col-md-10 main" pDroppable="components">
-      <div *ngIf="addQuestionsService.question.length > 0">
-      <div *ngFor="let questionModel of addQuestionsService.question">
-        <div *ngIf="isTextField(questionModel)">
-          <div class="form-group">
-            <label for="questionLabel" >{{questionModel.questionName}}</label>
-            <input id="questionLabel" class="form-control" type="text" name="questionLabel" placeholder="{{questionModel.placeHolder}}" >
+          </li>
+          <li>
+            <span class="btn btn-primary btn-block" title="Drop Down"
+                  pDraggable="components"  (onDragEnd)="dragComponentEnd(questionType.DropDown,$event)">Drop Down Field</span>
+
+          </li>
+        </ul>
+        </div>
+      </div>
+      <div class="col-sm-9 col-md-10 main" pDroppable="components">
+        <div class="row">
+          <div *ngIf="theAddQuestionsService.question.length === 0">
+            <div class="jumbotron">
+              <p>Drag and Drop a Form Component</p>
+
+            </div>
+          </div>
+        <div *ngIf="theAddQuestionsService.question.length > 0">
+          <div *ngFor="let questionModel of theAddQuestionsService.question;let i = index;">
+            <div [ngSwitch]="questionModel.questionType">
+            <div *ngSwitchCase="questionType.Text">
+              <div class="form-group question-btn-block">
+                <div class="right-corner-btn btn-group">
+                <button type="button" class="btn btn-default " aria-label="Edit" (click)="editQuestion(questionModel)">
+                  <span class="glyphicon glyphicon-edit"></span>
+                </button>
+                  <button type="button" class="btn btn-default " aria-label="Delete" (click)="deleteQuestion(i)">
+                    <span class="glyphicon glyphicon-trash"></span>
+                  </button>
+                </div>
+
+                <div class="container-fluid">
+                  <label for="questionLabel">{{questionModel.questionLabel}}</label>
+                  <input id="questionLabel" class="form-control" type="text" name="questionLabel"
+                         placeholder="{{questionModel.placeHolder}}">
+
+                </div>
+              </div>
+
+            </div>
+            <div *ngSwitchCase="questionType.CheckBox">
+              <div class="form-group question-btn-block">
+                <div class="right-corner-btn btn-group">
+                  <button type="button" class="btn btn-default " aria-label="Edit" (click)="editQuestion(questionModel)">
+                    <span class="glyphicon glyphicon-edit"></span>
+                  </button>
+                  <button type="button" class="btn btn-default " aria-label="Delete" (click)="deleteQuestion(i)">
+                    <span class="glyphicon glyphicon-trash"></span>
+                  </button>
+                </div>
+              <div class="checkbox">
+                <label> <input id="checkBoxQuestionLabel" type="checkbox" name="checkBoxQuestionLabel"
+                               checked="{{questionModel.defaultValue?'checked':''}}">{{questionModel.questionLabel}}</label>
+
+              </div>
+              </div>
+            </div>
+
+              <div *ngSwitchCase="questionType.DropDown">
+                <div class="form-group question-btn-block">
+                  <div class="right-corner-btn btn-group">
+                    <button type="button" class="btn btn-default " aria-label="Edit" (click)="editQuestion(questionModel)">
+                      <span class="glyphicon glyphicon-edit"></span>
+                    </button>
+                    <button type="button" class="btn btn-default " aria-label="Delete" (click)="deleteQuestion(i)">
+                      <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                  </div>
+                  <div class="custom-dropdown">
+                    <label >{{questionModel.questionLabel}}</label>
+                    <p-dropdown [options]="getSelectItemsArray(questionModel)" ></p-dropdown>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
           </div>
 
         </div>
-        <div *ngIf="isCheckBoxField(questionModel)">
-          <div class="checkbox">
-            <label > <input id="checkBoxQuestionLabel" type="checkbox" name="checkBoxQuestionLabel"
-            checked="{{questionModel.defaultValue?'checked':''}}">{{questionModel.questionName}}</label>
-
-          </div>
 
         </div>
+        <div class="row">
+        <button type="button" class="btn btn-primary pull-right"
+        >submit
+        </button>
+        </div>
+      </div>
+      <div>
 
       </div>
+      <div #dialogComponent>
+
       </div>
-    </div>
+      <!--
       <app-textfield-question [displayTextFieldDialog]="displayTextFieldDialog"
-      (onClose)="closeTextFieldDialog()"></app-textfield-question>
+                              (onClose)="closeTextFieldDialog()"
+       ></app-textfield-question>
+       -->
+      <!--
       <app-checkbox-question [displayCheckBoxFieldDialog]="displayCheckBoxFieldDialog"
-                            (onClose)="closeCheckBoxFieldDialog()"></app-checkbox-question>
-  </div>
+                             (onClose)="closeCheckBoxFieldDialog()"></app-checkbox-question>
+-->
+      </div>
+
 
 </div>

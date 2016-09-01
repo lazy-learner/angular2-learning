@@ -11,7 +11,14 @@ var AddQuestionsService = (function () {
         this.question = [];
     }
     AddQuestionsService.prototype.addQuestionModel = function (questionModel) {
-        this.question.push(questionModel);
+        var existingQuestionIndex = this.question.findIndex(function (element) { return element === questionModel; });
+        if (typeof existingQuestionIndex != "undefined" && existingQuestionIndex > -1) {
+            console.log(existingQuestionIndex);
+            this.question.fill(questionModel, existingQuestionIndex, existingQuestionIndex);
+        }
+        else {
+            this.question.push(questionModel);
+        }
     };
     AddQuestionsService = __decorate([
         core_1.Injectable()

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormModel} from '../shared/form-model';
+import {FormModel} from '../shared/model/form-model';
 
 import {FormService} from "../shared/services/form.service";
 

@@ -6,18 +6,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
-var text_question_model_1 = require("../../shared/text-question-model");
+var text_question_model_1 = require("../../shared/model/text-question-model");
 var TextfieldQuestionComponent = (function () {
-    function TextfieldQuestionComponent(theAddQuestionsService) {
-        this.theAddQuestionsService = theAddQuestionsService;
+    function TextfieldQuestionComponent(addQuestionsService, formBuilder) {
+        this.addQuestionsService = addQuestionsService;
+        this.formBuilder = formBuilder;
+        this.textQuestionModel = new text_question_model_1.TextQuestionModel();
         this.isDisplayTabOn = true;
         this.isValidationTabOn = false;
         this.onClose = new core_1.EventEmitter();
-        this.addQuestionsService = theAddQuestionsService;
-        this.textQuestionModel = new text_question_model_1.TextQuestionModel("Label");
     }
     TextfieldQuestionComponent.prototype.ngOnInit = function () {
-        console.log("new instace");
+        this.textFieldForm = this.textQuestionModel.toFormGroup(this.formBuilder);
     };
     TextfieldQuestionComponent.prototype.onTextFieldTabClick = function (tabName) {
         if (tabName === 'Display') {
@@ -30,13 +30,11 @@ var TextfieldQuestionComponent = (function () {
         }
     };
     TextfieldQuestionComponent.prototype.onTextFieldSave = function () {
+        this.textQuestionModel.populateFromFormGroup(this.textFieldForm);
+        console.log("this.textQuestionModel==" + this.textQuestionModel.questionLabel);
         this.addQuestionsService.addQuestionModel(this.textQuestionModel);
-        this.textQuestionModel = new text_question_model_1.TextQuestionModel("Label");
         this.onClose.emit();
     };
-    __decorate([
-        core_1.Input()
-    ], TextfieldQuestionComponent.prototype, "displayTextFieldDialog");
     __decorate([
         core_1.Output()
     ], TextfieldQuestionComponent.prototype, "onClose");

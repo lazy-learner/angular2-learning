@@ -3,7 +3,7 @@
  */
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
 import { routing }        from './app.routing';
 import { AppComponent }  from './app.component';
 
@@ -20,18 +20,23 @@ import {TabPanel} from 'primeng/primeng';
 import {AddQuestionsService} from "./shared/services/add-questions.service";
 import {TextfieldQuestionComponent} from "./questions/textfield-question/textfield-question.component";
 import {CheckboxQuestionComponent} from "./questions/checkbox-question/checkbox-question.component";
+import {DropdownQuestionComponent} from "./questions/dropdown-question/dropdown-question.component";
+import {NumericValidator} from "./shared/Directives/numeric-validator"
 
 @NgModule({
   imports:      [ BrowserModule,
-    FormsModule,routing ],
+    FormsModule,routing,ReactiveFormsModule ],
   declarations: [ Calendar,AppComponent,FormDetailsComponent,Dropdown,QuestionsComponent,Draggable,Droppable,Dialog,TabView,TabPanel,
     TextfieldQuestionComponent,
-    CheckboxQuestionComponent],
+    CheckboxQuestionComponent,
+    NumericValidator,
+    DropdownQuestionComponent],
   providers: [
     FormService,
     AddQuestionsService
 
   ],
+  entryComponents:[TextfieldQuestionComponent,CheckboxQuestionComponent,DropdownQuestionComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

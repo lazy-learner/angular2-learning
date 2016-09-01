@@ -1,6 +1,7 @@
 import { Component, OnInit,Input,EventEmitter,Output  } from '@angular/core';
+import {FormGroup,FormBuilder} from '@angular/forms';
 import {AddQuestionsService} from "../../shared/services/add-questions.service";
-import {CheckboxQuestionModel} from "../../shared/checkbox-question-model"
+import {CheckboxQuestionModel} from "../../shared/model/checkbox-question-model"
 
 @Component({
   selector: 'app-checkbox-question',
@@ -8,20 +9,21 @@ import {CheckboxQuestionModel} from "../../shared/checkbox-question-model"
   styleUrls: ['app/questions/checkbox-question/checkbox-question.component.css']
 })
 export class CheckboxQuestionComponent implements OnInit {
-  addQuestionsService:AddQuestionsService;
 
   isDisplayTabOn:boolean=true;
   isValidationTabOn:boolean=false;
-  checkboxQuestionModel:CheckboxQuestionModel;
+  checkboxQuestionModel:CheckboxQuestionModel=new CheckboxQuestionModel();
   @Input() displayCheckBoxFieldDialog:boolean;
   @Output() onClose=new EventEmitter();
-  constructor(private theAddQuestionsService:AddQuestionsService) {
-    this.addQuestionsService=theAddQuestionsService;
-    this.checkboxQuestionModel= new CheckboxQuestionModel("Label");
+  checkBoxFieldForm:FormGroup;
+  constructor(private theAddQuestionsService:AddQuestionsService,private formBuilder:FormBuilder) {
+
   }
 
   ngOnInit() {
+    this.checkBoxFieldForm=this.checkboxQuestionModel.toFormGroup(this.formBuilder);
   }
+
 
   onCheckBoxFieldTabClick(tabName:string){
     if(tabName==='Display'){
@@ -34,8 +36,10 @@ export class CheckboxQuestionComponent implements OnInit {
     }
   }
   onCheckBoxFieldSave(){
-    this.addQuestionsService.addQuestionModel(this.checkboxQuestionModel);
-    this.checkboxQuestionModel= new CheckboxQuestionModel("Label");
+    this.checkboxQuestionModel.populateFromFormGroup(this.checkBoxFieldForm);
+    console.log("this.textQuestionModel=="+this.checkboxQuestionModel.questionLabel);
+    this.theAddQuestionsService.addQuestionModel(this.checkboxQuestionModel);
+
     this.onClose.emit();
   }
 }

@@ -1,6 +1,10 @@
-import { Component, OnInit,Input,EventEmitter,Output  } from '@angular/core';
+import { Component, OnInit,Input,EventEmitter,Output,forwardRef,Host  } from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {AddQuestionsService} from "../../shared/services/add-questions.service";
-import {TextQuestionModel} from "../../shared/text-question-model";
+import {TextQuestionModel} from "../../shared/model/text-question-model";
+import {ValidationType} from "../../shared/model/validation-type";
+
+
 
 @Component({
   selector: 'app-textfield-question',
@@ -9,21 +13,20 @@ import {TextQuestionModel} from "../../shared/text-question-model";
 })
 export class TextfieldQuestionComponent implements OnInit {
 
-  addQuestionsService:AddQuestionsService;
-  textQuestionModel:TextQuestionModel;
+  textQuestionModel:TextQuestionModel=new TextQuestionModel();
   isDisplayTabOn:boolean=true;
   isValidationTabOn:boolean=false;
-  @Input() displayTextFieldDialog:boolean;
   @Output() onClose=new EventEmitter();
+  textFieldForm:FormGroup;
 
-  constructor(private theAddQuestionsService:AddQuestionsService
+  constructor( private addQuestionsService:AddQuestionsService,private formBuilder:FormBuilder
   ) {
-    this.addQuestionsService=theAddQuestionsService;
-    this.textQuestionModel= new TextQuestionModel("Label");
+
   }
 
   ngOnInit() {
-    console.log("new instace");
+  this.textFieldForm=this.textQuestionModel.toFormGroup(this.formBuilder);
+
   }
 
   onTextFieldTabClick(tabName:string){
@@ -37,8 +40,10 @@ export class TextfieldQuestionComponent implements OnInit {
     }
   }
   onTextFieldSave(){
+    this.textQuestionModel.populateFromFormGroup(this.textFieldForm);
+    console.log("this.textQuestionModel=="+this.textQuestionModel.questionLabel);
     this.addQuestionsService.addQuestionModel(this.textQuestionModel);
-    this.textQuestionModel= new TextQuestionModel("Label");
+
     this.onClose.emit();
   }
 

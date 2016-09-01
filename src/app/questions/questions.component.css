@@ -25,3 +25,31 @@ body{
 #textDialog .ui-dialog-title .ui-dialog-titlebar-close{
   color:white;
 }
+
+.question-btn-block{
+  border:1px dotted blue;
+  padding:5px;
+  position: relative;
+}
+.right-corner-btn{
+  position:absolute;
+  top:0;
+  right:0;
+  padding-top:0;
+  padding-bottom:0;
+}
+
+.right-corner-btn .btn{
+  padding-top:3px;
+  padding-bottom:3px;
+}
+
+.custom-dropdown >>> .ui-dropdown{
+  top:6px;
+
+}
+
+.custom-dropdown >>> .ui-dropdown-trigger{
+  margin-right:6px;
+
+}

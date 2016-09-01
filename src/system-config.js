@@ -39,6 +39,7 @@ var barrels = [
     'app/questions',
     'app/questions/textfield-question',
     'app/questions/checkbox-question',
+    'app/questions/dropdown-question',
 ];
 var cliSystemConfigPackages = {};
 barrels.forEach(function (barrelName) {
