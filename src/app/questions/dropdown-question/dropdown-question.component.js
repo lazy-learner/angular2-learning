@@ -34,6 +34,9 @@ var DropdownQuestionComponent = (function () {
         this.theAddQuestionsService.addQuestionModel(this.dropDownQuestionModel);
         this.onClose.emit();
     };
+    DropdownQuestionComponent.prototype.onDropDownFieldClose = function () {
+        this.onClose.emit();
+    };
     DropdownQuestionComponent.prototype.addOption = function () {
         this.dropDownQuestionModel.options.push({ label: "Label", value: "Value" });
         console.log("....sss.." + this.dropDownQuestionModel.options[this.dropDownQuestionModel.options.length - 1].label);

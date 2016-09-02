@@ -20,4 +20,10 @@ export class AddQuestionsService {
     }
   }
 
+  getQuestionLabels():string[]{
+    let returnValue:string[]=[];
+    this.question.forEach(qstn=>returnValue.push(qstn.questionLabel));
+    return returnValue;
+  }
+
 }

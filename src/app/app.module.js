@@ -29,7 +29,9 @@ var checkbox_question_component_1 = require("./questions/checkbox-question/check
 var dropdown_question_component_1 = require("./questions/dropdown-question/dropdown-question.component");
 var radio_group_question_component_1 = require("./questions/radio-group-question/radio-group-question.component");
 var numeric_validator_1 = require("./shared/Directives/numeric-validator");
+var unique_value_validator_1 = require("./shared/Directives/unique-value-validator");
 var checkbox_group_question_component_1 = require("./questions/checkbox-group-question/checkbox-group-question.component");
+var at_least_one_validator_1 = require("./shared/Directives/at-least-one-validator");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -44,7 +46,9 @@ var AppModule = (function () {
                 dropdown_question_component_1.DropdownQuestionComponent,
                 radio_group_question_component_1.RadioGroupQuestionComponent,
                 primeng_7.RadioButton,
-                checkbox_group_question_component_1.CheckboxGroupQuestionComponent],
+                checkbox_group_question_component_1.CheckboxGroupQuestionComponent,
+                unique_value_validator_1.UniqueValueValidator,
+                at_least_one_validator_1.AtLeastOneValidator],
             providers: [
                 form_service_1.FormService,
                 add_questions_service_1.AddQuestionsService

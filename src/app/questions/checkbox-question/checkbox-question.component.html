@@ -11,10 +11,17 @@
 
     <div *ngIf="isDisplayTabOn">
       <div class="form-group ">
-        <label for="label" >Label</label>
-          <input id="label" type="text" name="label" class="form-control" required
+        <label for="label" class="form-label-required">Label</label>
+          <input id="label" type="text" name="label" class="form-control" required [uniqueValue]="theAddQuestionsService.getQuestionLabels()"
                  formControlName="label">
-
+        <div *ngIf="checkBoxFieldForm.controls.label.dirty && !checkBoxFieldForm.controls.label.valid" class="alert alert-danger">
+          <div *ngIf="checkBoxFieldForm.controls.label.errors.required ">
+            Label is Required
+          </div>
+          <div *ngIf="checkBoxFieldForm.controls.label.errors.isNotUnique ">
+            Label should be unique
+          </div>
+        </div>
       </div>
 
       <div class="form-group">
@@ -24,12 +31,21 @@
 
     </div>
     <div *ngIf="isValidationTabOn" formGroupName="validations">
-      <div class="form-group row">
-
+      <div class="form-group col-sm-offset-2">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" formControlName="requiredValidation"> Required
+          </label>
+        </div>
       </div>
 
     </div>
-    <button type="button" class="btn btn-primary btn-block pull-right" (click)="onCheckBoxFieldSave()">Save</button>
+    <footer>
+      <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+        <button type="button" class="btn btn-primary" (click)="onCheckBoxFieldSave()" [disabled]="!checkBoxFieldForm.valid">Save</button>
+        <button type="button" class="btn btn-primary" (click)="onCheckBoxFieldClose()">Close</button>
+      </div>
+    </footer>
 
 </form>
 

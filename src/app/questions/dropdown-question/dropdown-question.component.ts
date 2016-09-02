@@ -41,6 +41,10 @@ export class DropdownQuestionComponent implements OnInit {
 
     this.onClose.emit();
   }
+
+  onDropDownFieldClose(){
+    this.onClose.emit();
+  }
   addOption(){
     this.dropDownQuestionModel.options.push({label:"Label",value:"Value"});
     console.log("....sss.."+this.dropDownQuestionModel.options[this.dropDownQuestionModel.options.length-1].label);

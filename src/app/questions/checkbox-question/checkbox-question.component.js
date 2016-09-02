@@ -35,6 +35,9 @@ var CheckboxQuestionComponent = (function () {
         this.theAddQuestionsService.addQuestionModel(this.checkboxQuestionModel);
         this.onClose.emit();
     };
+    CheckboxQuestionComponent.prototype.onCheckBoxFieldClose = function () {
+        this.onClose.emit();
+    };
     __decorate([
         core_1.Input()
     ], CheckboxQuestionComponent.prototype, "displayCheckBoxFieldDialog");

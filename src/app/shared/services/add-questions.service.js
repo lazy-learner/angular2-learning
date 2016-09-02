@@ -20,6 +20,11 @@ var AddQuestionsService = (function () {
             this.question.push(questionModel);
         }
     };
+    AddQuestionsService.prototype.getQuestionLabels = function () {
+        var returnValue = [];
+        this.question.forEach(function (qstn) { return returnValue.push(qstn.questionLabel); });
+        return returnValue;
+    };
     AddQuestionsService = __decorate([
         core_1.Injectable()
     ], AddQuestionsService);

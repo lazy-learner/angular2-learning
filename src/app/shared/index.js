@@ -15,4 +15,6 @@ __export(require('./model/validation-model'));
 __export(require('./model/dropdown-question-model'));
 __export(require('./model/radiogroup-question-model'));
 __export(require('./model/checkboxgroup-question-model'));
+__export(require('./Directives/unique-value-validator'));
+__export(require('./Directives/at-least-one-validator'));
 //# sourceMappingURL=index.js.map

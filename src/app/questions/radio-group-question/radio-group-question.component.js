@@ -34,6 +34,9 @@ var RadioGroupQuestionComponent = (function () {
         this.theAddQuestionsService.addQuestionModel(this.radioGroupQuestionModel);
         this.onClose.emit();
     };
+    RadioGroupQuestionComponent.prototype.onRadioGroupFieldClose = function () {
+        this.onClose.emit();
+    };
     RadioGroupQuestionComponent.prototype.addOption = function () {
         this.radioGroupQuestionModel.options.push({ label: "Label", value: "Value" });
         var optionsArray = this.radioGroupForm.controls['options'];

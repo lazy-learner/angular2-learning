@@ -53,3 +53,11 @@ body{
   margin-right:6px;
 
 }
+
+>>> .ui-dialog-titlebar-close {
+  display: none;
+    }
+
+ >>> .form-label-required:after {
+       content:"*";color:red;
+     }

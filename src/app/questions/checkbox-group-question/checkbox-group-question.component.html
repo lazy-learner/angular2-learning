@@ -1,4 +1,4 @@
-<p-dialog header="Add a RadioGroup Component" visible="true" modal="modal" showEffect="fade" width="600" responsive="true"
+<p-dialog header="Add a CheckBoxGroup Component" visible="true" modal="modal" showEffect="fade" width="600" responsive="true" closable="false"
           id="checkBoxGroupDialog">
   <form [formGroup]="checkBoxGroupForm">
     <ul class="nav nav-pills">
@@ -11,13 +11,24 @@
 
     <div *ngIf="isDisplayTabOn">
       <div class="form-group ">
-        <label for="label" >Label</label>
-        <input id="label" type="text" name="label" class="form-control" required
-               formControlName="label">
+        <label for="label" class="form-label-required">Label</label>
+        <input id="label" type="text" name="label" class="form-control"
+               formControlName="label" required [uniqueValue]="theAddQuestionsService.getQuestionLabels()">
+        <div *ngIf="checkBoxGroupForm.controls.label.dirty && !checkBoxGroupForm.controls.label.valid" class="alert alert-danger">
+          <div *ngIf="checkBoxGroupForm.controls.label.errors.required ">
+            Label is Required
+          </div>
+          <div *ngIf="checkBoxGroupForm.controls.label.errors.isNotUnique ">
+            Label should be unique
+          </div>
+        </div>
       </div>
 
-      <div class="form-group">
-        <label >Options</label>
+      <div class="form-group" formArrayName="options" atLeastOneRequired>
+        <label class="form-label-required">Options</label>
+        <div *ngIf="!checkBoxGroupForm.controls.options.errors?.atLeastOne " class="alert alert-danger">
+          At least one option is required
+        </div>
         <table class="table">
           <thead>
           <tr>
@@ -63,12 +74,21 @@
 
     </div>
     <div *ngIf="isValidationTabOn" formGroupName="validations">
-      <div class="form-group row">
-
+      <div class="form-group col-sm-offset-2">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" formControlName="requiredValidation"> Required
+          </label>
+        </div>
       </div>
 
     </div>
-    <button type="button" class="btn btn-primary btn-block pull-right" (click)="onCheckBoxGroupFieldSave()">Save</button>
+    <footer>
+      <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+        <button type="button" class="btn btn-primary" (click)="onCheckBoxGroupFieldSave()" [disabled]="!checkBoxGroupForm.valid">Save</button>
+        <button type="button" class="btn btn-primary" (click)="onCheckBoxGroupFieldClose()">Close</button>
+      </div>
+    </footer>
 
   </form>
 

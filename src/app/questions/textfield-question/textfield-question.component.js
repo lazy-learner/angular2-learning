@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require('@angular/core');
 var text_question_model_1 = require("../../shared/model/text-question-model");
 var TextfieldQuestionComponent = (function () {
-    function TextfieldQuestionComponent(addQuestionsService, formBuilder) {
-        this.addQuestionsService = addQuestionsService;
+    function TextfieldQuestionComponent(theAddQuestionsService, formBuilder) {
+        this.theAddQuestionsService = theAddQuestionsService;
         this.formBuilder = formBuilder;
         this.textQuestionModel = new text_question_model_1.TextQuestionModel();
         this.isDisplayTabOn = true;
@@ -32,7 +32,10 @@ var TextfieldQuestionComponent = (function () {
     TextfieldQuestionComponent.prototype.onTextFieldSave = function () {
         this.textQuestionModel.populateFromFormGroup(this.textFieldForm);
         console.log("this.textQuestionModel==" + this.textQuestionModel.questionLabel);
-        this.addQuestionsService.addQuestionModel(this.textQuestionModel);
+        this.theAddQuestionsService.addQuestionModel(this.textQuestionModel);
+        this.onClose.emit();
+    };
+    TextfieldQuestionComponent.prototype.onTextFieldClose = function () {
         this.onClose.emit();
     };
     __decorate([

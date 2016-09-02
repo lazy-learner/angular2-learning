@@ -23,7 +23,9 @@ import {CheckboxQuestionComponent} from "./questions/checkbox-question/checkbox-
 import {DropdownQuestionComponent} from "./questions/dropdown-question/dropdown-question.component";
 import {RadioGroupQuestionComponent} from "./questions/radio-group-question/radio-group-question.component";
 import {NumericValidator} from "./shared/Directives/numeric-validator"
+import {UniqueValueValidator} from "./shared/Directives/unique-value-validator"
 import {CheckboxGroupQuestionComponent} from "./questions/checkbox-group-question/checkbox-group-question.component";
+import {AtLeastOneValidator} from "./shared/Directives/at-least-one-validator";
 
 @NgModule({
   imports:      [ BrowserModule,
@@ -35,7 +37,9 @@ import {CheckboxGroupQuestionComponent} from "./questions/checkbox-group-questio
     DropdownQuestionComponent,
     RadioGroupQuestionComponent,
     RadioButton,
-    CheckboxGroupQuestionComponent],
+    CheckboxGroupQuestionComponent,
+    UniqueValueValidator,
+    AtLeastOneValidator],
   providers: [
     FormService,
     AddQuestionsService

@@ -14,7 +14,7 @@ export class CheckboxGroupQuestionComponent implements OnInit {
   checkBoxGroupQuestionModel:CheckboxgroupQuestionModel=new CheckboxgroupQuestionModel();
   @Output() onClose=new EventEmitter();
   checkBoxGroupForm:FormGroup;
-  constructor(private theAddQuestionsService:AddQuestionsService,private formBuilder:FormBuilder) {
+  constructor(public theAddQuestionsService:AddQuestionsService,private formBuilder:FormBuilder) {
 
   }
 
@@ -39,6 +39,11 @@ export class CheckboxGroupQuestionComponent implements OnInit {
 
     this.onClose.emit();
   }
+
+  onCheckBoxGroupFieldClose(){
+    this.onClose.emit();
+  }
+
   addOption(){
     this.checkBoxGroupQuestionModel.options.push({label:"Label",value:"Value"});
     let optionsArray=<FormArray>this.checkBoxGroupForm.controls['options'];

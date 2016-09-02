@@ -36,9 +36,14 @@ export class CheckboxQuestionComponent implements OnInit {
     }
   }
   onCheckBoxFieldSave(){
-    this.checkboxQuestionModel.populateFromFormGroup(this.checkBoxFieldForm);
-    console.log("this.textQuestionModel=="+this.checkboxQuestionModel.questionLabel);
-    this.theAddQuestionsService.addQuestionModel(this.checkboxQuestionModel);
+  this.checkboxQuestionModel.populateFromFormGroup(this.checkBoxFieldForm);
+  console.log("this.textQuestionModel=="+this.checkboxQuestionModel.questionLabel);
+  this.theAddQuestionsService.addQuestionModel(this.checkboxQuestionModel);
+
+  this.onClose.emit();
+}
+
+  onCheckBoxFieldClose(){
 
     this.onClose.emit();
   }

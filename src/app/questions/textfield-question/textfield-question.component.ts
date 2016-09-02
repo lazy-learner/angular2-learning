@@ -19,7 +19,7 @@ export class TextfieldQuestionComponent implements OnInit {
   @Output() onClose=new EventEmitter();
   textFieldForm:FormGroup;
 
-  constructor( private addQuestionsService:AddQuestionsService,private formBuilder:FormBuilder
+  constructor( private theAddQuestionsService:AddQuestionsService,private formBuilder:FormBuilder
   ) {
 
   }
@@ -42,8 +42,12 @@ export class TextfieldQuestionComponent implements OnInit {
   onTextFieldSave(){
     this.textQuestionModel.populateFromFormGroup(this.textFieldForm);
     console.log("this.textQuestionModel=="+this.textQuestionModel.questionLabel);
-    this.addQuestionsService.addQuestionModel(this.textQuestionModel);
+    this.theAddQuestionsService.addQuestionModel(this.textQuestionModel);
 
+    this.onClose.emit();
+  }
+
+  onTextFieldClose(){
     this.onClose.emit();
   }
 

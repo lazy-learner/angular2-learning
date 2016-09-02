@@ -7,31 +7,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
-var NumericValidator = (function () {
-    function NumericValidator() {
+var AtLeastOneValidator = (function () {
+    function AtLeastOneValidator() {
     }
-    NumericValidator.prototype.validate = function (c) {
-        var fieldValue = c.value;
-        if (isNaN(fieldValue)) {
+    AtLeastOneValidator.prototype.validate = function (c) {
+        var formGroupValue = c.value;
+        if (formGroupValue.length == 0) {
             return {
-                'isANumber': false
+                'atLeastOne': false
             };
         }
         return {
-            'isANumber': true
+            'atLeastOne': true
         };
     };
-    NumericValidator = __decorate([
+    AtLeastOneValidator = __decorate([
         core_1.Directive({
-            selector: '[validateNumeric][ngModel],[validateNumeric][formControl],[validateNumeric][formControlName]',
+            selector: '[atLeastOneRequired][formArrayName]',
             providers: [
                 {
-                    provide: forms_1.NG_VALIDATORS, useExisting: core_1.forwardRef(function () { return NumericValidator; }), multi: true
+                    provide: forms_1.NG_VALIDATORS, useExisting: core_1.forwardRef(function () { return AtLeastOneValidator; }), multi: true
                 }
             ]
         })
-    ], NumericValidator);
-    return NumericValidator;
+    ], AtLeastOneValidator);
+    return AtLeastOneValidator;
 }());
-exports.NumericValidator = NumericValidator;
-//# sourceMappingURL=numeric-validator.js.map
+exports.AtLeastOneValidator = AtLeastOneValidator;
+//# sourceMappingURL=at-least-one-validator.js.map

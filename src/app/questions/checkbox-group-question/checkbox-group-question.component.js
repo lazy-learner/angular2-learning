@@ -34,6 +34,9 @@ var CheckboxGroupQuestionComponent = (function () {
         this.theAddQuestionsService.addQuestionModel(this.checkBoxGroupQuestionModel);
         this.onClose.emit();
     };
+    CheckboxGroupQuestionComponent.prototype.onCheckBoxGroupFieldClose = function () {
+        this.onClose.emit();
+    };
     CheckboxGroupQuestionComponent.prototype.addOption = function () {
         this.checkBoxGroupQuestionModel.options.push({ label: "Label", value: "Value" });
         var optionsArray = this.checkBoxGroupForm.controls['options'];
