@@ -22,7 +22,7 @@ var UniqueValueValidator = (function () {
     };
     __decorate([
         core_1.Input('uniqueValue')
-    ], UniqueValueValidator.prototype, "givenValues");
+    ], UniqueValueValidator.prototype, "givenValues", void 0);
     UniqueValueValidator = __decorate([
         core_1.Directive({
             selector: '[uniqueValue][ngModel],[uniqueValue][formControl],[uniqueValue][formControlName]',

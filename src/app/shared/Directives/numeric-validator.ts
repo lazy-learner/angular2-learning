@@ -20,9 +20,7 @@ export class NumericValidator implements Validator{
         'isANumber':false
       };
     }
-    return {
-      'isANumber':true
-    };
+    return null;
   }
 
 

@@ -7,12 +7,10 @@
       <a (click)="onTextFieldTabClick('Display')">Display</a>
     </li>
     <li role="presentation" [ngClass]="{active:isValidationTabOn}"><a (click)="onTextFieldTabClick('Validations')">Validations</a></li>
-
   </ul>
-
     <div *ngIf="isDisplayTabOn">
       <div class="form-group">
-        <label for="label" >Label</label>
+        <label for="label" class="form-label-required">Label</label>
         <input id="label" type="text" class="form-control"
                formControlName="label" required [uniqueValue]="theAddQuestionsService.getQuestionLabels()">
         <div *ngIf="textFieldForm.controls.label.dirty && !textFieldForm.controls.label.valid" class="alert alert-danger">
@@ -41,7 +39,7 @@
           <input id="Minimum_Length" type="text" class="form-control"
                  formControlName="minimumLengthValidation" validateNumeric
                  >
-      <div *ngIf="!textFieldForm.controls.validations.controls.minimumLengthValidation.errors.isANumber"
+      <div *ngIf="textFieldForm.controls.validations.controls.minimumLengthValidation.errors && !textFieldForm.controls.validations.controls.minimumLengthValidation.errors.isANumber"
              class="alert alert-danger">
           Minimum Length should be Numeric
         </div>
@@ -49,13 +47,14 @@
       <div class="form-group">
         <label for="maximum_length" class="col-sm-3 col-form-label">Maximum Length</label>
         <input id="maximum_length" type="text" class="form-control" formControlName="maximumLengthValidation" validateNumeric>
-        <div *ngIf="!textFieldForm.controls.validations.controls.maximumLengthValidation.errors.isANumber"
+        <div *ngIf="textFieldForm.controls.validations.controls.maximumLengthValidation.errors && !textFieldForm.controls.validations.controls.maximumLengthValidation.errors.isANumber"
              class="alert alert-danger">
-          Minimum Length should be Numeric
+          Maximum Length should be Numeric
         </div>
       </div>
 
     </div>
+
     <footer>
       <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
         <button type="button" class="btn btn-primary" (click)="onTextFieldSave()" [disabled]="!textFieldForm.valid">Save</button>

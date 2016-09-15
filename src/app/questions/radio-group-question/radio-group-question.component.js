@@ -49,7 +49,7 @@ var RadioGroupQuestionComponent = (function () {
     };
     __decorate([
         core_1.Output()
-    ], RadioGroupQuestionComponent.prototype, "onClose");
+    ], RadioGroupQuestionComponent.prototype, "onClose", void 0);
     RadioGroupQuestionComponent = __decorate([
         core_1.Component({
             selector: 'app-radio-group-question',

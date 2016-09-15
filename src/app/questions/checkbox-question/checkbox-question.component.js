@@ -40,10 +40,10 @@ var CheckboxQuestionComponent = (function () {
     };
     __decorate([
         core_1.Input()
-    ], CheckboxQuestionComponent.prototype, "displayCheckBoxFieldDialog");
+    ], CheckboxQuestionComponent.prototype, "displayCheckBoxFieldDialog", void 0);
     __decorate([
         core_1.Output()
-    ], CheckboxQuestionComponent.prototype, "onClose");
+    ], CheckboxQuestionComponent.prototype, "onClose", void 0);
     CheckboxQuestionComponent = __decorate([
         core_1.Component({
             selector: 'app-checkbox-question',

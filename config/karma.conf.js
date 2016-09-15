@@ -5,10 +5,7 @@ module.exports = function (config) {
   config.set({
     basePath: '..',
     frameworks: ['jasmine'],
-    plugins: [
-      require('karma-jasmine'),
-      require('karma-chrome-launcher')
-    ],
+
     customLaunchers: {
       // chrome setup for travis CI using chromium
       Chrome_travis_ci: {
@@ -34,8 +31,21 @@ module.exports = function (config) {
       // Vendor packages might include spec files. We don't want to use those.
       'dist/vendor/**/*.spec.js'
     ],
-    preprocessors: {},
-    reporters: ['progress'],
+    preprocessors: {'dist/**/!(*spec).js': ['coverage']},
+    reporters: ['progress','coverage','spec'],
+    coverageReporter: {
+      type : 'html',
+      dir : 'coverage/'
+    },
+    specReporter: {
+      maxLogLines: 5,         // limit number of lines logged per test
+      suppressErrorSummary: true,  // do not print error summary
+      suppressFailed: false,  // do not print information about failed tests
+      suppressPassed: false,  // do not print information about passed tests
+      suppressSkipped: true,  // do not print information about skipped tests
+      showSpecTiming: false // print the time elapsed for each spec
+    },
+
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

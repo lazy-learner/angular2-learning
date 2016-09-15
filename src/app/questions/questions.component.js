@@ -105,7 +105,7 @@ var QuestionsComponent = (function () {
     };
     __decorate([
         core_1.ViewChild('dialogComponent', { read: core_1.ViewContainerRef })
-    ], QuestionsComponent.prototype, "dialogContainerRef");
+    ], QuestionsComponent.prototype, "dialogContainerRef", void 0);
     QuestionsComponent = __decorate([
         core_1.Component({
             selector: 'app-questions',

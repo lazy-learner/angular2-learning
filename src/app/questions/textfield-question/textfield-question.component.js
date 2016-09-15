@@ -40,7 +40,7 @@ var TextfieldQuestionComponent = (function () {
     };
     __decorate([
         core_1.Output()
-    ], TextfieldQuestionComponent.prototype, "onClose");
+    ], TextfieldQuestionComponent.prototype, "onClose", void 0);
     TextfieldQuestionComponent = __decorate([
         core_1.Component({
             selector: 'app-textfield-question',

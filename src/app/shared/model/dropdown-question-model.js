@@ -47,7 +47,7 @@ var DropdownQuestionModel = (function (_super) {
             label: typeof this.questionLabel != 'undefined' && this.questionLabel ? this.questionLabel : "",
             options: fb.array([]),
             validations: fb.group({
-                requiredValidation: typeof requiredValidation != 'undefined' && requiredValidation.values[0] ? requiredValidation.values[0] : ''
+                requiredValidation: typeof requiredValidation != 'undefined' && requiredValidation.values[0] ? requiredValidation.values[0] : '',
             })
         });
         this.options.forEach(function (option) {

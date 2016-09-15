@@ -41,7 +41,7 @@ var barrels = [
     'app/questions/checkbox-question',
     'app/questions/dropdown-question',
     'app/questions/radio-group-question',
-    'app/questions/checkbox-group-question',
+    'app/questions/checkbox-group-question'
 ];
 var cliSystemConfigPackages = {};
 barrels.forEach(function (barrelName) {

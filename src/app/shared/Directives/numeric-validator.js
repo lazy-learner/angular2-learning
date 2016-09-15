@@ -17,9 +17,7 @@ var NumericValidator = (function () {
                 'isANumber': false
             };
         }
-        return {
-            'isANumber': true
-        };
+        return null;
     };
     NumericValidator = __decorate([
         core_1.Directive({

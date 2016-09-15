@@ -38,7 +38,7 @@ var CheckboxQuestionModel = (function (_super) {
             label: typeof this.questionLabel != 'undefined' && this.questionLabel ? this.questionLabel : "",
             defaultValue: typeof this.defaultValue != 'undefined' && this.defaultValue ? this.defaultValue : "",
             validations: fb.group({
-                requiredValidation: typeof requiredValidation != 'undefined' && requiredValidation.values[0] ? requiredValidation.values[0] : ''
+                requiredValidation: typeof requiredValidation != 'undefined' && requiredValidation.values[0] ? requiredValidation.values[0] : '',
             })
         });
     };

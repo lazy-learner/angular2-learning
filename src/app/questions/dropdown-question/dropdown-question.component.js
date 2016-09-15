@@ -50,10 +50,10 @@ var DropdownQuestionComponent = (function () {
     };
     __decorate([
         core_1.Input()
-    ], DropdownQuestionComponent.prototype, "displayCheckBoxFieldDialog");
+    ], DropdownQuestionComponent.prototype, "displayCheckBoxFieldDialog", void 0);
     __decorate([
         core_1.Output()
-    ], DropdownQuestionComponent.prototype, "onClose");
+    ], DropdownQuestionComponent.prototype, "onClose", void 0);
     DropdownQuestionComponent = __decorate([
         core_1.Component({
             selector: 'app-dropdown-question',

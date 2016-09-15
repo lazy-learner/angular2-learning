@@ -13,7 +13,6 @@ var AddQuestionsService = (function () {
     AddQuestionsService.prototype.addQuestionModel = function (questionModel) {
         var existingQuestionIndex = this.question.findIndex(function (element) { return element === questionModel; });
         if (typeof existingQuestionIndex != "undefined" && existingQuestionIndex > -1) {
-            console.log(existingQuestionIndex);
             this.question.fill(questionModel, existingQuestionIndex, existingQuestionIndex);
         }
         else {

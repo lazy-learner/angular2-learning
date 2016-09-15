@@ -16,13 +16,7 @@ var app_component_1 = require('./app.component');
 var form_details_component_1 = require("./form-details/form-details.component");
 var questions_1 = require("./questions");
 var form_service_1 = require("./shared/services/form.service");
-var primeng_1 = require('primeng/primeng');
-var primeng_2 = require("primeng/primeng");
-var primeng_3 = require('primeng/primeng');
-var primeng_4 = require('primeng/primeng');
-var primeng_5 = require('primeng/primeng');
-var primeng_6 = require('primeng/primeng');
-var primeng_7 = require('primeng/primeng');
+var primeng_1 = require("primeng/primeng");
 var add_questions_service_1 = require("./shared/services/add-questions.service");
 var textfield_question_component_1 = require("./questions/textfield-question/textfield-question.component");
 var checkbox_question_component_1 = require("./questions/checkbox-question/checkbox-question.component");
@@ -38,14 +32,13 @@ var AppModule = (function () {
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule,
-                forms_1.FormsModule, app_routing_1.routing, forms_1.ReactiveFormsModule],
-            declarations: [primeng_1.Calendar, app_component_1.AppComponent, form_details_component_1.FormDetailsComponent, primeng_2.Dropdown, questions_1.QuestionsComponent, primeng_3.Draggable, primeng_4.Droppable, primeng_5.Dialog, primeng_6.TabView, primeng_7.TabPanel,
+                forms_1.FormsModule, app_routing_1.routing, forms_1.ReactiveFormsModule, primeng_1.DragDropModule, primeng_1.DropdownModule, primeng_1.DialogModule],
+            declarations: [app_component_1.AppComponent, form_details_component_1.FormDetailsComponent, questions_1.QuestionsComponent,
                 textfield_question_component_1.TextfieldQuestionComponent,
                 checkbox_question_component_1.CheckboxQuestionComponent,
                 numeric_validator_1.NumericValidator,
                 dropdown_question_component_1.DropdownQuestionComponent,
                 radio_group_question_component_1.RadioGroupQuestionComponent,
-                primeng_7.RadioButton,
                 checkbox_group_question_component_1.CheckboxGroupQuestionComponent,
                 unique_value_validator_1.UniqueValueValidator,
                 at_least_one_validator_1.AtLeastOneValidator],

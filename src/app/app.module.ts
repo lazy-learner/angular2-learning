@@ -10,13 +10,7 @@ import { AppComponent }  from './app.component';
 import {FormDetailsComponent} from "./form-details/form-details.component";
 import {QuestionsComponent} from "./questions"
 import {FormService} from "./shared/services/form.service";
-import {Calendar} from 'primeng/primeng';
-import {Dropdown} from "primeng/primeng";
-import { Draggable } from 'primeng/primeng';
-import { Droppable } from 'primeng/primeng';
-import {Dialog} from 'primeng/primeng';
-import {TabView} from 'primeng/primeng';
-import {TabPanel,RadioButton} from 'primeng/primeng';
+import {DragDropModule,DropdownModule,DialogModule} from "primeng/primeng";
 import {AddQuestionsService} from "./shared/services/add-questions.service";
 import {TextfieldQuestionComponent} from "./questions/textfield-question/textfield-question.component";
 import {CheckboxQuestionComponent} from "./questions/checkbox-question/checkbox-question.component";
@@ -29,14 +23,13 @@ import {AtLeastOneValidator} from "./shared/Directives/at-least-one-validator";
 
 @NgModule({
   imports:      [ BrowserModule,
-    FormsModule,routing,ReactiveFormsModule ],
-  declarations: [ Calendar,AppComponent,FormDetailsComponent,Dropdown,QuestionsComponent,Draggable,Droppable,Dialog,TabView,TabPanel,
+    FormsModule,routing,ReactiveFormsModule,DragDropModule,DropdownModule,DialogModule ],
+  declarations: [ AppComponent,FormDetailsComponent,QuestionsComponent,
     TextfieldQuestionComponent,
     CheckboxQuestionComponent,
     NumericValidator,
     DropdownQuestionComponent,
     RadioGroupQuestionComponent,
-    RadioButton,
     CheckboxGroupQuestionComponent,
     UniqueValueValidator,
     AtLeastOneValidator],

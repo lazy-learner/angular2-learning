@@ -49,7 +49,7 @@ var CheckboxGroupQuestionComponent = (function () {
     };
     __decorate([
         core_1.Output()
-    ], CheckboxGroupQuestionComponent.prototype, "onClose");
+    ], CheckboxGroupQuestionComponent.prototype, "onClose", void 0);
     CheckboxGroupQuestionComponent = __decorate([
         core_1.Component({
             selector: 'app-checkbox-group-question',

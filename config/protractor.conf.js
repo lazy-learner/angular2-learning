@@ -10,11 +10,14 @@ exports.config = {
     '../e2e/**/*.e2e-spec.ts'
   ],
   capabilities: {
-    'browserName': 'chrome'
+    browserName: 'firefox',
+    marionette:true
   },
+ // seleniumAddress: 'http://127.0.0.1:58967/hub',
   directConnect: true,
   baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
+  firefoxPath: "C://Program Files (x86)//Mozilla Firefox//firefox.exe",
   jasmineNodeOpts: {
     showColors: true,
     defaultTimeoutInterval: 30000,
