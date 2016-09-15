@@ -3,8 +3,8 @@
 # compiled output
 /dist
 /tmp
-/src/*.js
-/src/*.map
+/src/**/*.js
+/src/**/*.map
 
 # dependencies
 /node_modules
@@ -27,8 +27,8 @@ testem.log
 /typings
 
 # e2e
-/e2e/*.js
-/e2e/*.map
+/e2e/**/*.js
+/e2e/**/*.map
 
 #System Files
 .DS_Store
