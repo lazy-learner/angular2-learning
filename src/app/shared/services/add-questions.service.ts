@@ -4,23 +4,23 @@ import {TextQuestionModel} from "../model/text-question-model";
 
 @Injectable()
 export class AddQuestionsService {
-  public question:QuestionModel[]=[];
+  public questions:QuestionModel[]=[];
 
   constructor() { }
 
   addQuestionModel(questionModel:QuestionModel){
-    let existingQuestionIndex=this.question.findIndex(element=> element === questionModel);
+    let existingQuestionIndex=this.questions.findIndex(element=> element === questionModel);
     if(typeof existingQuestionIndex != "undefined" && existingQuestionIndex > -1){
-      this.question.fill(questionModel,existingQuestionIndex,existingQuestionIndex);
+      this.questions.fill(questionModel,existingQuestionIndex,existingQuestionIndex);
     }
   else {
-      this.question.push(questionModel);
+      this.questions.push(questionModel);
     }
   }
 
   getQuestionLabels():string[]{
     let returnValue:string[]=[];
-    this.question.forEach(qstn=>returnValue.push(qstn.questionLabel));
+    this.questions.forEach(qstn=>returnValue.push(qstn.questionLabel));
     return returnValue;
   }
 

@@ -19,7 +19,7 @@ export class TextfieldQuestionComponent implements OnInit {
   @Output() onClose=new EventEmitter();
   textFieldForm:FormGroup;
 
-  constructor( private theAddQuestionsService:AddQuestionsService,private formBuilder:FormBuilder
+  constructor( public theAddQuestionsService:AddQuestionsService,private formBuilder:FormBuilder
   ) {
 
   }

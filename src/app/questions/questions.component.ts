@@ -51,7 +51,7 @@ export class QuestionsComponent implements OnInit {
     }
 
   deleteQuestion(atIndex:number){
-    this.theAddQuestionsService.question.splice(atIndex,1);
+    this.theAddQuestionsService.questions.splice(atIndex,1);
   }
 
   editQuestion(questionModel:QuestionModel){
