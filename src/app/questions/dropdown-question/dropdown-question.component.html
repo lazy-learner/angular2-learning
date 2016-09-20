@@ -26,7 +26,7 @@
 
       <div class="form-group" formArrayName="options" atLeastOneRequired>
         <label class="form-label-required">Options</label>
-        <div *ngIf="!checkBoxGroupForm.controls.options.errors?.atLeastOne " class="alert alert-danger">
+        <div *ngIf="dropDownFieldForm.controls.options.errors && !dropDownFieldForm.controls.options.errors.atLeastOne " class="alert alert-danger">
           At least one option is required
         </div>
         <table class="table">
@@ -43,14 +43,14 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let option of dropDownFieldForm?.find('options')?.controls;let i = index;">
+          <tr *ngFor="let option of dropDownFieldForm.controls.options.controls;let i = index;" [formGroupName]="i">
             <td class="col-xs-5">
               <input type="text" name="label" class="form-control"
-                     [formControl]="option?.controls?.Label" >
+                     formControlName="Key" >
             </td>
             <td class="col-xs-5">
               <input type="text" name="label" class="form-control"
-                     [formControl]="option?.controls?.Value" >
+                     formControlName="Value" >
             </td>
             <td class="col-xs-2 btn-group">
               <button type="button" class="btn btn-default " aria-label="Delete Option" (click)="deleteOption(i)">

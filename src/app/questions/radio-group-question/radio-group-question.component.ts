@@ -44,7 +44,7 @@ export class RadioGroupQuestionComponent implements OnInit {
     this.onClose.emit();
   }
   addOption(){
-    this.radioGroupQuestionModel.options.push({label:"Label",value:"Value"});
+    this.radioGroupQuestionModel.options.push({key:"",value:""});
     let optionsArray=<FormArray>this.radioGroupForm.controls['options'];
     optionsArray.push(this.radioGroupQuestionModel.createOptionFormGroup(this.radioGroupQuestionModel.options.pop(),this.formBuilder));
 

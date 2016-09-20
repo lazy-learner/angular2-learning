@@ -10,14 +10,16 @@
 /** Map relative paths to URLs. */
 const map: any = {
   'primeng': 'vendor/primeng',
-  'primeui': 'vendor/primeui'
+  'primeui': 'vendor/primeui',
+  'angular2-grid': 'vendor/angular2-grid/dist'
 };
 
 /** User packages configuration. */
 const packages: any = {
   'primeng':{
     format: 'cjs'
-  }
+  },
+  'angular2-grid': { main: 'main.js',  defaultExtension: 'js' }
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -68,7 +70,7 @@ System.config({
     'chart.js' : 'vendor/chart.js',
     'primeng' : 'vendor/primeng',
     'primeui' : 'vendor/primeui',
-    'jquery':'vendor/jquery'
+    'jquery':'vendor/jquery',
   },
   packages: cliSystemConfigPackages
 });

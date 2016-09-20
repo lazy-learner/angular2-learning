@@ -15,6 +15,7 @@
         <input id="label" type="text" name="label" class="form-control"
                formControlName="label" required [uniqueValue]="theAddQuestionsService.getQuestionLabels()">
         <div *ngIf="checkBoxGroupForm.controls.label.dirty && !checkBoxGroupForm.controls.label.valid" class="alert alert-danger">
+
           <div *ngIf="checkBoxGroupForm.controls.label.errors.required ">
             Label is Required
           </div>
@@ -26,7 +27,7 @@
 
       <div class="form-group" formArrayName="options" atLeastOneRequired>
         <label class="form-label-required">Options</label>
-        <div *ngIf="!checkBoxGroupForm.controls.options.errors?.atLeastOne " class="alert alert-danger">
+        <div *ngIf="checkBoxGroupForm.controls.options.errors&&!checkBoxGroupForm.controls.options.errors.atLeastOne " class="alert alert-danger">
           At least one option is required
         </div>
         <table class="table">
@@ -43,14 +44,14 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let option of checkBoxGroupForm?.find('options')?.controls;let i = index;">
+          <tr *ngFor="let option of checkBoxGroupForm.controls.options.controls;let i = index;" [formGroupName]="i">
             <td class="col-xs-5">
               <input type="text" name="label" class="form-control"
-                     [formControl]="option?.controls?.Label" >
+                     formControlName="Key" >
             </td>
             <td class="col-xs-5">
               <input type="text" name="label" class="form-control"
-                     [formControl]="option?.controls?.Value" >
+                     formControlName="Value" >
             </td>
             <td class="col-xs-2 btn-group">
               <button type="button" class="btn btn-default " aria-label="Delete Option" (click)="deleteOption(i)">
@@ -83,6 +84,8 @@
       </div>
 
     </div>
+
+
     <footer>
       <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
         <button type="button" class="btn btn-primary" (click)="onCheckBoxGroupFieldSave()" [disabled]="!checkBoxGroupForm.valid">Save</button>
@@ -91,6 +94,7 @@
     </footer>
 
   </form>
+
 
 </p-dialog>
 

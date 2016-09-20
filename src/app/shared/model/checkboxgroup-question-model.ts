@@ -4,7 +4,7 @@ import {ValidationType} from "./validation-type";
 import {ValidationModel} from "./validation-model";
 import {FormGroup,FormBuilder,Validators,FormControl,FormArray} from '@angular/forms';
 export class CheckboxgroupQuestionModel extends QuestionModel{
-  public options:{label:string,value:string}[]=[{label:"Label",value:"Value"}];
+  public options:{key:string,value:string}[]=[{key:"",value:""}];
   constructor(){
     super(QuestionType.CheckBoxGroup);
   }
@@ -17,7 +17,7 @@ export class CheckboxgroupQuestionModel extends QuestionModel{
     this.options.splice(0);
     let optionsArray=<FormArray>formGroup.controls['options'];
     for(var _i=0;_i<optionsArray.length;_i++ ){
-      this.options.push({label:(<FormControl>optionsArray.at(_i)).get("Label").value,value:(<FormControl>optionsArray.at(_i)).get("Value").value});
+      this.options.push({key:(<FormControl>optionsArray.at(_i)).get("Key").value,value:(<FormControl>optionsArray.at(_i)).get("Value").value});
     }
     if(formGroup.get("validations").value !=null)
     {
@@ -36,29 +36,32 @@ export class CheckboxgroupQuestionModel extends QuestionModel{
 
 
 
-  createOptionFormGroup(option:{label:string,value:string},fb:FormBuilder):FormGroup{
+  createOptionFormGroup(option:{key:string,value:string},fb:FormBuilder):FormGroup{
 
     return fb.group({
-        Label:option.label,
+        Key:option.key,
         Value:option.value
       }
     );
   }
 
   toFormGroup(fb:FormBuilder ):FormGroup{
-
-    let requiredValidation=this.validations.find(validation=>validation.validationType===ValidationType.Required);
+    var cache = [];
+    let requiredValidation:ValidationModel=this.validations.find(validation=>validation.validationType===ValidationType.Required);
     let formGroup:FormGroup= fb.group({
-      label:typeof this.questionLabel != 'undefined' && this.questionLabel?this.questionLabel:"",
+      label:typeof this.questionLabel != 'undefined' && this.questionLabel?this.questionLabel:[""],
       options:fb.array([]),
       validations:fb.group(
         {
-          requiredValidation:typeof requiredValidation != 'undefined' && requiredValidation.values[0]?requiredValidation.values[0]:'',
+          requiredValidation:typeof requiredValidation != 'undefined' && requiredValidation.values[0]?requiredValidation.values[0]:''
         }
       )
     });
+
+    let optionsArray=<FormArray>formGroup.controls['options'];
+
     this.options.forEach(option=>{
-      let optionsArray=<FormArray>formGroup.controls['options'];
+
       optionsArray.push(this.createOptionFormGroup(option,fb))
     });
     return formGroup;

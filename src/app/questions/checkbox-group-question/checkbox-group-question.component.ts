@@ -45,7 +45,7 @@ export class CheckboxGroupQuestionComponent implements OnInit {
   }
 
   addOption(){
-    this.checkBoxGroupQuestionModel.options.push({label:"Label",value:"Value"});
+    this.checkBoxGroupQuestionModel.options.push({key:"",value:""});
     let optionsArray=<FormArray>this.checkBoxGroupForm.controls['options'];
     optionsArray.push(this.checkBoxGroupQuestionModel.createOptionFormGroup(this.checkBoxGroupQuestionModel.options.pop(),this.formBuilder));
 

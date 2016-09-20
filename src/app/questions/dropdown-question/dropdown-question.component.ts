@@ -46,8 +46,7 @@ export class DropdownQuestionComponent implements OnInit {
     this.onClose.emit();
   }
   addOption(){
-    this.dropDownQuestionModel.options.push({label:"Label",value:"Value"});
-    console.log("....sss.."+this.dropDownQuestionModel.options[this.dropDownQuestionModel.options.length-1].label);
+    this.dropDownQuestionModel.options.push({key:"",value:""});
     let optionsArray=<FormArray>this.dropDownFieldForm.controls['options'];
     optionsArray.push(this.dropDownQuestionModel.createOptionFormGroup(this.dropDownQuestionModel.options.pop(),this.formBuilder));
 

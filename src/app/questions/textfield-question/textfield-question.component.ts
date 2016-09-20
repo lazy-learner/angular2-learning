@@ -26,7 +26,6 @@ export class TextfieldQuestionComponent implements OnInit {
 
   ngOnInit() {
   this.textFieldForm=this.textQuestionModel.toFormGroup(this.formBuilder);
-
   }
 
   onTextFieldTabClick(tabName:string){

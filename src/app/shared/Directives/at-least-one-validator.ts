@@ -24,9 +24,7 @@ export class AtLeastOneValidator implements Validator{
       };
 
     }
-    return {
-      'atLeastOne':true
-    };
+    return null;
   }
 }
 

@@ -25,7 +25,8 @@ module.exports = function(defaults) {
       'bourbon/app/assets/**',
       'font-awesome/**',
       'bootstrap/dist/css/bootstrap.min.css',
-      'bootstrap/dist/fonts/**'
+      'bootstrap/dist/fonts/**',
+      'angular2-grid/dist/**/*.js',
     ],
     polyfills:[
       'vendor/jquery/dist/jquery.min.js',

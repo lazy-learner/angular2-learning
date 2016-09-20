@@ -13,12 +13,14 @@ import {RadioGroupQuestionComponent} from "./radio-group-question/radio-group-qu
 import {RadioGroupQuestionModel} from "../shared/model/radiogroup-question-model";
 import {CheckboxGroupQuestionComponent} from "./checkbox-group-question/checkbox-group-question.component";
 import {CheckboxgroupQuestionModel} from "../shared/model/checkboxgroup-question-model";
+import { NgGrid, NgGridItem } from 'angular2-grid';
 
 
 @Component({
   selector: 'app-questions',
   templateUrl: 'app/questions/questions.component.html',
-  styleUrls: ['app/questions/questions.component.css']
+  styleUrls: ['app/questions/questions.component.css'],
+  directives: [NgGrid, NgGridItem]
 })
 export class QuestionsComponent implements OnInit {
 
@@ -43,7 +45,7 @@ export class QuestionsComponent implements OnInit {
       let dropDownSelectItems:SelectItem[]=[];
       theQuestionModel.options.forEach(option=>
         {
-          dropDownSelectItems.push(option);
+          dropDownSelectItems.push({label:option.key,value:option.value});
         }
       )
 
