@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
 
-import { addProviders, async, inject } from '@angular/core/testing';
+import {  async, inject } from '@angular/core/testing';
 import {TextQuestionModel} from './text-question-model';
 import {QuestionType} from "./question-type";
 

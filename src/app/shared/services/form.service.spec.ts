@@ -1,11 +1,11 @@
 /* tslint:disable:no-unused-variable */
 
-import { addProviders, async, inject } from '@angular/core/testing';
+import {  async, inject,TestBed } from '@angular/core/testing';
 import { FormService } from './form.service';
 
 describe('Service: FormService', () => {
   beforeEach(() => {
-    addProviders([FormService]);
+    TestBed.configureTestingModule({ providers: [FormService] });
   });
 
   it('should ...',

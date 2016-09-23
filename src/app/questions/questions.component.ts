@@ -13,14 +13,12 @@ import {RadioGroupQuestionComponent} from "./radio-group-question/radio-group-qu
 import {RadioGroupQuestionModel} from "../shared/model/radiogroup-question-model";
 import {CheckboxGroupQuestionComponent} from "./checkbox-group-question/checkbox-group-question.component";
 import {CheckboxgroupQuestionModel} from "../shared/model/checkboxgroup-question-model";
-import { NgGrid, NgGridItem } from 'angular2-grid';
 
 
 @Component({
   selector: 'app-questions',
   templateUrl: 'app/questions/questions.component.html',
-  styleUrls: ['app/questions/questions.component.css'],
-  directives: [NgGrid, NgGridItem]
+  styleUrls: ['app/questions/questions.component.css']
 })
 export class QuestionsComponent implements OnInit {
 

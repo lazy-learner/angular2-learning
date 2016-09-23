@@ -10,8 +10,7 @@
 /** Map relative paths to URLs. */
 const map: any = {
   'primeng': 'vendor/primeng',
-  'primeui': 'vendor/primeui',
-  'angular2-grid': 'vendor/angular2-grid/dist'
+  'primeui': 'vendor/primeui'
 };
 
 /** User packages configuration. */
@@ -19,7 +18,18 @@ const packages: any = {
   'primeng':{
     format: 'cjs'
   },
-  'angular2-grid': { main: 'main.js',  defaultExtension: 'js' }
+  'ng2-dragula':{
+    format: 'cjs'
+  },
+  'dragula': { defaultExtension: 'js', main: './dragula.js',meta: {
+    'dist/*.css': { loader: 'css' }
+  } },
+  'contra': { defaultExtension: 'js', main: './contra.js' },
+  'crossvent': { defaultExtension: 'js', main: './dist/crossvent.js' },
+  'atoa': { main: 'atoa.js', defaultExtension: 'js' },
+  'ticky': { main: 'ticky.js', defaultExtension: 'js' },
+
+  'custom-event': { main: 'index.js', defaultExtension: 'js' },
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -65,12 +75,21 @@ declare var System: any;
 System.config({
   map: {
     '@angular': 'vendor/@angular',
+
     'rxjs': 'vendor/rxjs',
     'main': 'main.js',
     'chart.js' : 'vendor/chart.js',
     'primeng' : 'vendor/primeng',
     'primeui' : 'vendor/primeui',
     'jquery':'vendor/jquery',
+    'ng2-dragula':'vendor/ng2-dragula',
+    'dragula':'vendor/dragula',
+    'contra': 'vendor/contra',
+    'crossvent': 'vendor/crossvent',
+    'atoa': 'vendor/atoa',
+    'ticky': 'vendor/ticky',
+    'custom-event': 'vendor/custom-event',
+    'css': 'vendor/systemjs-plugin-css/css.js'
   },
   packages: cliSystemConfigPackages
 });

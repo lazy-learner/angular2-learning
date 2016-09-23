@@ -2,7 +2,7 @@
 
 import { By }           from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { addProviders, async, inject } from '@angular/core/testing';
+import {  async, inject } from '@angular/core/testing';
 import { FormDetailsComponent } from './form-details.component';
 import {FormService} from '../shared/services/form.service';
 import { Router } from '@angular/router';

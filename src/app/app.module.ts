@@ -20,11 +20,11 @@ import {NumericValidator} from "./shared/Directives/numeric-validator"
 import {UniqueValueValidator} from "./shared/Directives/unique-value-validator"
 import {CheckboxGroupQuestionComponent} from "./questions/checkbox-group-question/checkbox-group-question.component";
 import {AtLeastOneValidator} from "./shared/Directives/at-least-one-validator";
-import { NgGridModule } from 'angular2-grid';
+import {DragulaModule} from "ng2-dragula/ng2-dragula";
 
 @NgModule({
   imports:      [ BrowserModule,
-    FormsModule,routing,ReactiveFormsModule,DragDropModule,DropdownModule,DialogModule,NgGridModule  ],
+    FormsModule,routing,ReactiveFormsModule,DragDropModule,DropdownModule,DialogModule,DragulaModule  ],
   declarations: [ AppComponent,FormDetailsComponent,QuestionsComponent,
     TextfieldQuestionComponent,
     CheckboxQuestionComponent,

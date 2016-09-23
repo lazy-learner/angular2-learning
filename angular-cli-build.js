@@ -13,6 +13,7 @@ module.exports = function(defaults) {
       'jquery-ui-dist/jquery-ui.js',
       'systemjs/dist/system-polyfills.js',
       'systemjs/dist/system.src.js',
+      'systemjs-plugin-css/css.js',
       'zone.js/dist/**/*.+(js|js.map)',
       'es6-shim/es6-shim.js',
       'reflect-metadata/**/*.+(ts|js|js.map)',
@@ -26,7 +27,14 @@ module.exports = function(defaults) {
       'font-awesome/**',
       'bootstrap/dist/css/bootstrap.min.css',
       'bootstrap/dist/fonts/**',
-      'angular2-grid/dist/**/*.js',
+      'ng2-dragula/**/*.+(js|ts)',
+      'dragula/**/*.+(js|ts|css)',
+      'contra/**/*.+(js|ts)',
+    'crossvent/**/*.+(js|ts)',
+    'atoa/**/*.+(js|ts)',
+    'ticky/**/*.+(js|ts)',
+    'custom-event/**/*.+(js|ts)',
+
     ],
     polyfills:[
       'vendor/jquery/dist/jquery.min.js',
